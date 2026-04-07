@@ -21,7 +21,7 @@ export default function Safety() {
               <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.5)', marginBottom: '2rem' }}>
                 At Sol Powerlines, safety isn't a slogan or a shifting priority. It's part of professional execution. We emphasize thorough planning, clear communication, and continuous training so our crews can perform high-quality work while managing risk responsibly.
               </p>
-              <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.4)', marginBottom: '3rem' }}>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.6)', marginBottom: '3rem' }}>
                 Our safety and health program focuses on hazard recognition, accountability at every level, and compliance with OSHA and industry standards. Every employee is expected to take ownership of safety, support their crew, and stop work when conditions aren't right.
               </p>
 
@@ -31,7 +31,7 @@ export default function Safety() {
                   <div key={cert} style={{ background: '#000', padding: '1.5rem', textAlign: 'center' }}>
                     <Award size={20} color="#F5A623" style={{ marginBottom: '0.5rem' }} />
                     <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--amber)' }}>Grade A</div>
-                    <div style={{ fontSize: '0.8rem', color: 'rgba(240,240,250,0.4)', marginTop: '0.2rem' }}>{cert}</div>
+                    <div style={{ fontSize: '0.8rem', color: 'rgba(240,240,250,0.6)', marginTop: '0.2rem' }}>{cert}</div>
                   </div>
                 ))}
               </div>
@@ -48,7 +48,7 @@ export default function Safety() {
                   <div style={{ flexShrink: 0, marginTop: '0.2rem' }}>{p.icon}</div>
                   <div>
                     <h4 style={{ fontFamily: 'Inter', fontSize: '0.95rem', fontWeight: 600, color: '#f0f0fa', marginBottom: '0.4rem' }}>{p.title}</h4>
-                    <p style={{ fontSize: '0.85rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.4)' }}>{p.desc}</p>
+                    <p style={{ fontSize: '0.85rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)' }}>{p.desc}</p>
                   </div>
                 </div>
               ))}

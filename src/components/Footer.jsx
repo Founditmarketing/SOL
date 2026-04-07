@@ -9,13 +9,13 @@ export default function Footer() {
           <Link to="/" style={{ display: 'inline-block', marginBottom: '1.5rem' }}>
             <img src="/sol-logo.svg" alt="SolPowerlines" style={{ height: '32px' }} />
           </Link>
-          <p style={{ color: 'rgba(240,240,250,0.3)', lineHeight: 1.6, maxWidth: '280px', fontSize: '0.85rem' }}>
+          <p style={{ color: 'rgba(240,240,250,0.5)', lineHeight: 1.6, maxWidth: '280px', fontSize: '0.85rem' }}>
             A dependable, knowledgeable, and trusted partner in power utility construction and emergency response.
           </p>
         </div>
 
         <div>
-          <h4 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(240,240,250,0.3)', marginBottom: '1.5rem' }}>Company</h4>
+          <h4 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(240,240,250,0.5)', marginBottom: '1.5rem' }}>Company</h4>
           <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {['About', 'Safety', 'Careers', 'Contact'].map(link => (
               <li key={link}><Link to={`/${link.toLowerCase()}`} style={{ color: 'rgba(240,240,250,0.5)', fontSize: '0.85rem', transition: 'color 0.2s' }} onMouseOver={e => e.currentTarget.style.color='#F5A623'} onMouseOut={e => e.currentTarget.style.color='rgba(240,240,250,0.5)'}>{link}</Link></li>
@@ -24,7 +24,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(240,240,250,0.3)', marginBottom: '1.5rem' }}>Services</h4>
+          <h4 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(240,240,250,0.5)', marginBottom: '1.5rem' }}>Services</h4>
           <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {['Distribution', 'Underground', 'Storm Restoration', 'Telecom / Fiber', 'Streetlight'].map(link => (
               <li key={link}><Link to="/services" style={{ color: 'rgba(240,240,250,0.5)', fontSize: '0.85rem', transition: 'color 0.2s' }} onMouseOver={e => e.currentTarget.style.color='#F5A623'} onMouseOut={e => e.currentTarget.style.color='rgba(240,240,250,0.5)'}>{link}</Link></li>
@@ -33,11 +33,11 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(240,240,250,0.3)', marginBottom: '1.5rem' }}>Contact</h4>
+          <h4 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(240,240,250,0.5)', marginBottom: '1.5rem' }}>Contact</h4>
           <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             <li><a href="tel:318-776-0557" style={{ color: 'rgba(240,240,250,0.5)', fontSize: '0.85rem' }}>318.776.0557</a></li>
             <li><a href="mailto:info@solpowerlines.com" style={{ color: 'rgba(240,240,250,0.5)', fontSize: '0.85rem' }}>info@solpowerlines.com</a></li>
-            <li><span style={{ color: 'rgba(240,240,250,0.3)', fontSize: '0.85rem', lineHeight: 1.5 }}>1613 J.B. Hunt Drive #1708<br/>Alexandria, LA 71303</span></li>
+            <li><span style={{ color: 'rgba(240,240,250,0.5)', fontSize: '0.85rem', lineHeight: 1.5 }}>1613 J.B. Hunt Drive #1708<br/>Alexandria, LA 71303</span></li>
           </ul>
         </div>
       </div>

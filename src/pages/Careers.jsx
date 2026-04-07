@@ -33,7 +33,7 @@ export default function Careers() {
                 <div style={{ flexShrink: 0, marginTop: '0.2rem' }}>{item.icon}</div>
                 <div>
                   <h3 style={{ fontFamily: 'Inter', fontSize: '1rem', fontWeight: 600, color: '#f0f0fa', marginBottom: '0.3rem' }}>{item.title}</h3>
-                  <p style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(240,240,250,0.4)' }}>{item.desc}</p>
+                  <p style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(240,240,250,0.6)' }}>{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -43,7 +43,7 @@ export default function Careers() {
             <h3 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '1rem' }}>Applicant Requirements</h3>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '3rem' }}>
               {['Valid CDL license Class A', 'Mandatory drug testing', 'Proof of Qualification — includes "Test-Outs" and "Hands-on Evaluations" specific to job task requirements'].map((req, idx) => (
-                <li key={idx} style={{ fontSize: '0.9rem', color: 'rgba(240,240,250,0.4)', display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <li key={idx} style={{ fontSize: '0.9rem', color: 'rgba(240,240,250,0.6)', display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                   <span style={{ color: 'var(--amber)', marginTop: '0.2rem' }}>—</span>
                   <span>{req}</span>
                 </li>

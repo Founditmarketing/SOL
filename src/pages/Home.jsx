@@ -39,7 +39,7 @@ export default function Home() {
       {/* ═══ HERO — Full viewport cinematic ═══ */}
       <section className="hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#000' }}>
         <video className="desktop-video" src="/hero-desktop-v2.mp4" autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }} />
-        <video className="mobile-video" src="/hero-mobile-v2.mp4" autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.4 }} />
+        <video className="mobile-video" src="/hero-mobile-v2.mp4" autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.55 }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 60%, #000000 100%)', zIndex: 1 }} />
 
         <div className="container" style={{ paddingTop: 'clamp(8rem, 18vh, 12rem)', zIndex: 3, position: 'relative' }}>
@@ -50,13 +50,13 @@ export default function Home() {
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }}
             style={{ fontFamily: 'Inter', fontSize: 'clamp(3rem, 7vw, 5.5rem)', color: '#f0f0fa', lineHeight: 1.0, letterSpacing: '-0.03em', marginBottom: '2rem', maxWidth: '800px', fontWeight: 600 }}>
             In the World<br/>of Energy
-            <span className="hero-subtitle" style={{ display: 'block', fontSize: 'clamp(0.85rem, 1.5vw, 1.1rem)', fontWeight: 400, color: 'rgba(240,240,250,0.5)', letterSpacing: '0.15em', textTransform: 'uppercase', marginTop: '1.5rem', fontFamily: 'Barlow Condensed' }}>
+            <span className="hero-subtitle" style={{ display: 'block', fontSize: 'clamp(0.85rem, 1.5vw, 1.1rem)', fontWeight: 400, color: 'rgba(240,240,250,0.65)', letterSpacing: '0.15em', textTransform: 'uppercase', marginTop: '1.5rem', fontFamily: 'Barlow Condensed' }}>
               Distribution · Underground · Storm Restoration · Fiber · Streetlight
             </span>
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }}
-            style={{ fontSize: '1.05rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.5)', maxWidth: '480px', marginBottom: '3rem' }}>
+            style={{ fontSize: '1.05rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.7)', maxWidth: '480px', marginBottom: '3rem' }}>
             A dependable, knowledgeable, and trusted partner in power utility construction, site preparation, and emergency response across the Gulf South.
           </motion.p>
 
@@ -88,7 +88,7 @@ export default function Home() {
                 <div style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontFamily: 'Inter', fontWeight: 700, color: '#f0f0fa', lineHeight: 1, letterSpacing: '-0.03em', marginBottom: '0.5rem' }}>
                   <AnimatedCounter from={0} to={stat.value} suffix={stat.suffix} />
                 </div>
-                <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.2em', color: 'rgba(240,240,250,0.35)' }}>{stat.label}</div>
+                <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.2em', color: 'rgba(240,240,250,0.5)' }}>{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -121,7 +121,7 @@ export default function Home() {
           <div style={{ maxWidth: '500px', marginBottom: '4rem' }}>
             <div className="section-label">Services</div>
             <h2 className="section-title">Complete Utility<br/>Solutions</h2>
-            <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.4)' }}>We pride ourselves in our ability to complete services effectively and efficiently regardless of the scale or extent of the project.</p>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)' }}>We pride ourselves in our ability to complete services effectively and efficiently regardless of the scale or extent of the project.</p>
           </div>
 
           <div className="carousel-wrapper">
@@ -139,7 +139,7 @@ export default function Home() {
                 style={{ background: '#000', padding: '3rem 2.5rem', cursor: 'pointer', transition: 'background 0.3s' }}>
                 <div style={{ marginBottom: '1.5rem', opacity: 0.8 }}>{srv.icon}</div>
                 <h3 style={{ fontFamily: 'Inter', fontSize: '1.2rem', color: '#f0f0fa', marginBottom: '1rem', fontWeight: 600 }}>{srv.title}</h3>
-                <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.4)', marginBottom: '1.5rem' }}>{srv.desc}</p>
+                <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', marginBottom: '1.5rem' }}>{srv.desc}</p>
                 <Link to="/services" style={{ fontFamily: 'Barlow Condensed', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--amber)', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
                   Learn More <ArrowRight size={14} />
                 </Link>
@@ -168,7 +168,7 @@ export default function Home() {
               <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}
                 style={{ background: '#0a0a0a', padding: '3rem 2.5rem' }}>
                 <h3 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '1.25rem' }}>{item.title}</h3>
-                <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.45)' }}>{item.desc}</p>
+                <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.65)' }}>{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -196,7 +196,7 @@ export default function Home() {
                 </div>
                 <h3 style={{ fontFamily: 'Inter', fontSize: '1.1rem', color: '#f0f0fa', fontWeight: 600, marginBottom: '0.25rem' }}>{person.name}</h3>
                 <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '1rem' }}>{person.role}</div>
-                <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.4)' }}>{person.desc}</p>
+                <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)' }}>{person.desc}</p>
               </motion.div>
             ))}
           </div>

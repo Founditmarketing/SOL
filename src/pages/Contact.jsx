@@ -60,7 +60,7 @@ export default function Contact() {
                     <motion.div key="success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ textAlign: 'center', padding: '4rem 2rem' }}>
                       <CheckCircle2 size={48} color="#F5A623" style={{ marginBottom: '1.5rem' }} />
                       <h3 style={{ fontFamily: 'Inter', fontSize: '1.3rem', color: '#f0f0fa', fontWeight: 600, marginBottom: '0.5rem' }}>Message Sent</h3>
-                      <p style={{ color: 'rgba(240,240,250,0.4)', lineHeight: 1.5 }}>Thank you for reaching out. Our team will get back to you shortly.</p>
+                      <p style={{ color: 'rgba(240,240,250,0.6)', lineHeight: 1.5 }}>Thank you for reaching out. Our team will get back to you shortly.</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

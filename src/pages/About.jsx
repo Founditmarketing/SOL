@@ -24,16 +24,16 @@ export default function About() {
               <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.5)', marginBottom: '1.5rem' }}>
                 SolPowerlines has the highest dedication to our employees and customers, bringing forth excellence and integrity to every task and challenge for tomorrow's possibilities.
               </p>
-              <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.4)' }}>
+              <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.6)' }}>
                 We have provided utility construction services to Investment Owned Utilities, Electric Cooperatives, and Municipalities for years — making Sol a proven and trusted partner in the power utility space. You can count on our dependability to complete the job as we tackle today's challenges and tomorrow's possibilities.
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
               <h3 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '1.5rem' }}>People Matter More</h3>
-              <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.4)', marginBottom: '1.5rem' }}>
+              <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.6)', marginBottom: '1.5rem' }}>
                 At the forefront of our company and our partner companies, is the value that people matter more. We stand behind this principle because prioritizing people also prioritizes their safety, experience, and overall well-being.
               </p>
-              <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.4)' }}>
+              <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.6)' }}>
                 This same principle spans to our customers, partners, and community as well. We strive to create a diverse workforce that values this same philosophy. You can count on us to keep safety first while staying people minded.
               </p>
             </motion.div>
@@ -72,7 +72,7 @@ export default function About() {
                 style={{ borderLeft: '2px solid var(--amber)', paddingLeft: '2rem' }}>
                 <h3 style={{ fontFamily: 'Inter', fontSize: '1.1rem', color: '#f0f0fa', fontWeight: 600, marginBottom: '0.2rem' }}>{person.name}</h3>
                 <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '1rem' }}>{person.role}</div>
-                <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.4)' }}>{person.bio}</p>
+                <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)' }}>{person.bio}</p>
               </motion.div>
             ))}
           </div>

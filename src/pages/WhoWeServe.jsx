@@ -10,7 +10,7 @@ export default function WhoWeServe() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="section-label">Who We Serve</div>
             <h1 className="section-title" style={{ maxWidth: '600px' }}>Trusted by Utilities<br/>Across the Region</h1>
-            <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.4)', maxWidth: '600px' }}>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', maxWidth: '600px' }}>
               SolPowerlines prioritizes customer relationships and is proud to provide services to electrical utility companies like Electric Cooperatives, Municipal Owned Utilities, and Investor Owned Utilities.
             </p>
           </motion.div>
@@ -47,7 +47,7 @@ export default function WhoWeServe() {
               >
                 <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '0.5rem' }}>{item.stat}</div>
                 <h3 style={{ fontFamily: 'Inter', fontSize: '1.3rem', color: '#f0f0fa', fontWeight: 600, marginBottom: '1.25rem' }}>{item.title}</h3>
-                <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.4)', marginBottom: '2rem' }}>{item.desc}</p>
+                <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', marginBottom: '2rem' }}>{item.desc}</p>
                 <Link to="/contact" style={{ fontFamily: 'Barlow Condensed', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--amber)', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
                   Partner With Us <ArrowRight size={14} />
                 </Link>

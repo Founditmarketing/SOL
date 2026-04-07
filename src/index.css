@@ -264,6 +264,27 @@ button {
   }
   .swipe-hint svg { animation: swipe-bounce 1.5s ease-in-out infinite; }
   @keyframes swipe-bounce { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+
+  /* ═══ MOBILE BRIGHTNESS FIX ═══ */
+  /* Ghost buttons → solid on mobile for tap targets */
+  .btn-blue {
+    background: rgba(245, 166, 35, 0.12) !important;
+    border-color: rgba(245, 166, 35, 0.5) !important;
+    color: var(--spectral) !important;
+  }
+  .btn-outline {
+    border-color: rgba(240,240,250,0.35) !important;
+    color: var(--spectral) !important;
+  }
+
+  /* Section labels more readable */
+  .section-label {
+    font-size: 0.75rem !important;
+    opacity: 1 !important;
+  }
+
+  /* Swipe hint brighter */
+  .swipe-hint { opacity: 0.7 !important; }
 }
 
 /* Flash effects */
