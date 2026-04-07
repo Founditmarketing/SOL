@@ -7,7 +7,7 @@ export default function Footer() {
         
         <div>
           <Link to="/" style={{ display: 'inline-block', marginBottom: '1.5rem' }}>
-            <img src="https://solpowerlines.com/wp-content/uploads/2024/02/Sol_Logo-1-300x83.png" alt="SolPowerlines" style={{ height: '28px', filter: 'brightness(10)' }} />
+            <img src="/sol-logo.svg" alt="SolPowerlines" style={{ height: '32px' }} />
           </Link>
           <p style={{ color: 'rgba(240,240,250,0.3)', lineHeight: 1.6, maxWidth: '280px', fontSize: '0.85rem' }}>
             A dependable, knowledgeable, and trusted partner in power utility construction and emergency response.

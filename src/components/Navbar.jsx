@@ -29,7 +29,7 @@ export default function Navbar() {
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1300px', margin: '0 auto' }}>
           <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
-            <img src="https://solpowerlines.com/wp-content/uploads/2024/02/Sol_Logo-1-300x83.png" alt="SolPowerlines" style={{ height: '30px', objectFit: 'contain', filter: 'brightness(10)' }} />
+            <img src="/sol-logo.svg" alt="SolPowerlines" style={{ height: '36px', objectFit: 'contain' }} />
           </Link>
 
           <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
