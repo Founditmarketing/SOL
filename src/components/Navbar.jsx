@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
+import PowerToggle from './PowerToggle';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -47,6 +48,7 @@ export default function Navbar() {
                 );
               })}
             </div>
+            <PowerToggle />
             <a href="tel:3187760557" className="btn btn-blue" style={{ padding: '0.6rem 1.2rem', fontSize: '0.75rem' }}>
               <Phone size={13} style={{ marginRight: '6px' }} /> 318.776.0557
             </a>
@@ -80,9 +82,12 @@ export default function Navbar() {
                   </Link>
                 ))}
               </div>
-              <a href="tel:3187760557" className="btn btn-red" style={{ width: '100%', justifyContent: 'center', marginTop: '2rem' }}>
-                <Phone size={16} style={{ marginRight: '8px' }} /> 318.776.0557
-              </a>
+              <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem' }}>
+                <PowerToggle />
+                <a href="tel:3187760557" className="btn btn-red" style={{ flex: 1, justifyContent: 'center' }}>
+                  <Phone size={16} style={{ marginRight: '8px' }} /> 318.776.0557
+                </a>
+              </div>
             </motion.div>
           </>
         )}

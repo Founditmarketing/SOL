@@ -75,7 +75,7 @@ export default function Home() {
       </section>
 
       {/* ═══ STATS BAR ═══ */}
-      <section style={{ background: '#000', borderTop: '1px solid rgba(240,240,250,0.06)', borderBottom: '1px solid rgba(240,240,250,0.06)', padding: '4rem 2rem' }}>
+      <section className="section stats-section" style={{ background: '#000', borderTop: '1px solid rgba(240,240,250,0.06)', borderBottom: '1px solid rgba(240,240,250,0.06)', padding: '4rem 2rem' }}>
         <div className="container">
           <div className="carousel-wrapper">
           <div className="mobile-carousel hide-scrollbar" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', textAlign: 'center' }}>
@@ -116,7 +116,7 @@ export default function Home() {
       </section>
 
       {/* ═══ SERVICES GRID ═══ */}
-      <section className="section" style={{ background: '#000' }}>
+      <section className="section services-section" style={{ background: '#000' }}>
         <div className="container">
           <div style={{ maxWidth: '500px', marginBottom: '4rem' }}>
             <div className="section-label">Services</div>
@@ -125,7 +125,7 @@ export default function Home() {
           </div>
 
           <div className="carousel-wrapper">
-          <div className="mobile-carousel hide-scrollbar" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1px', background: 'rgba(240,240,250,0.06)' }}>
+          <div className="mobile-carousel hide-scrollbar service-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1px', background: 'rgba(240,240,250,0.06)' }}>
             {[
               { title: 'Distribution', icon: <Zap color="var(--amber)" size={22} />, desc: 'Construction and maintenance for electrical distribution systems up to 34.5kv — new construction, system improvements, and complete rebuilds.' },
               { title: 'Underground', icon: <Cable color="var(--amber)" size={22} />, desc: 'Installation and maintenance of underground networks in some of the most complex systems in the country.' },
@@ -136,6 +136,7 @@ export default function Home() {
               <motion.div key={srv.title}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.06 }}
                 whileHover={{ background: 'rgba(245,166,35,0.04)' }}
+                className="service-card"
                 style={{ background: '#000', padding: '3rem 2.5rem', cursor: 'pointer', transition: 'background 0.3s' }}>
                 <div style={{ marginBottom: '1.5rem', opacity: 0.8 }}>{srv.icon}</div>
                 <h3 style={{ fontFamily: 'Inter', fontSize: '1.2rem', color: '#f0f0fa', marginBottom: '1rem', fontWeight: 600 }}>{srv.title}</h3>
@@ -152,7 +153,7 @@ export default function Home() {
       </section>
 
       {/* ═══ WHO WE SERVE ═══ */}
-      <section className="section" style={{ background: '#0a0a0a', borderTop: '1px solid rgba(240,240,250,0.06)' }}>
+      <section className="section utilities-section" style={{ background: '#0a0a0a', borderTop: '1px solid rgba(240,240,250,0.06)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 4rem' }}>
             <div className="section-label" style={{ justifyContent: 'center' }}>Who We Serve</div>
@@ -165,7 +166,7 @@ export default function Home() {
               { title: 'Municipal Owned Utilities', desc: 'Utilities owned and operated by a city. We partner with municipalities to deliver reliable power infrastructure at the local level.' },
               { title: 'Investor Owned Utilities', desc: 'Business organizations providing essential power services. We support IOUs with scalable construction and maintenance solutions.' }
             ].map((item, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}
+              <motion.div key={idx} className="utility-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}
                 style={{ background: '#0a0a0a', padding: '3rem 2.5rem' }}>
                 <h3 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '1.25rem' }}>{item.title}</h3>
                 <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.65)' }}>{item.desc}</p>
@@ -176,7 +177,7 @@ export default function Home() {
       </section>
 
       {/* ═══ LEADERSHIP ═══ */}
-      <section className="section" style={{ background: '#000', borderTop: '1px solid rgba(240,240,250,0.06)' }}>
+      <section className="section leadership-section" style={{ background: '#000', borderTop: '1px solid rgba(240,240,250,0.06)' }}>
         <div className="container">
           <div style={{ maxWidth: '500px', marginBottom: '4rem' }}>
             <div className="section-label">Leadership</div>

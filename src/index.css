@@ -290,8 +290,309 @@ button {
   .swipe-hint { opacity: 0.7 !important; }
 }
 
-/* Flash effects */
-.electric-flash { position: fixed; inset: 0; z-index: 99999; background: white; pointer-events: none; animation: flash-in 0.6s ease-out forwards; }
-.electric-flash-out { animation: flash-out 0.6s ease-out forwards; }
-@keyframes flash-in { 0% { opacity: 0; } 15% { opacity: 1; } 100% { opacity: 0; } }
-@keyframes flash-out { 0% { opacity: 0; } 15% { opacity: 0.6; } 100% { opacity: 0; } }
+/* ═══ TRANSITION FLASH ═══ */
+@keyframes power-flash { 0% { opacity: 0; } 12% { opacity: 0.9; } 100% { opacity: 0; } }
+.electric-flash { position: fixed; inset: 0; z-index: 99999; background: white; pointer-events: none; animation: power-flash 0.5s ease-out forwards; }
+.electric-flash-out { animation: power-flash 0.5s ease-out forwards; }
+
+/* ═══════════════════════════════════════════
+   LIGHT MODE — World-Class Day Theme
+   ═══════════════════════════════════════════ */
+
+[data-mode="light"] {
+  --black: #f8f6f1;
+  --spectral: #1a1a2e;
+  --dark: #f8f6f1;
+  --dark2: #f0ede6;
+  --dark3: #e8e4db;
+  --steel: #d4cfc5;
+  --slate: #6b6b7b;
+  --text: #555566;
+  --text-light: #1a1a2e;
+  --white: #1a1a2e;
+  --white-surface: #f0ede6;
+  --ghost: rgba(26,26,46,0.06);
+  --ghost-border: rgba(26,26,46,0.15);
+  --border-light: rgba(26,26,46,0.1);
+  --glass: rgba(248,246,241,0.9);
+  --glass-border: rgba(26,26,46,0.12);
+}
+
+/* Body & Canvas */
+[data-mode="light"] body,
+[data-mode="light"] html {
+  background: #f8f6f1 !important;
+  color: #1a1a2e !important;
+}
+
+/* Header / Nav */
+[data-mode="light"] header {
+  background-color: rgba(248,246,241,0.92) !important;
+  border-bottom-color: rgba(26,26,46,0.08) !important;
+}
+[data-mode="light"] header[style*="transparent"] {
+  background-color: transparent !important;
+}
+[data-mode="light"] .desktop-nav a {
+  color: rgba(26,26,46,0.6) !important;
+}
+[data-mode="light"] .mobile-toggle button {
+  color: #1a1a2e !important;
+}
+
+/* Mobile Menu */
+[data-mode="light"] div[style*="z-index: 1002"] {
+  background: #f8f6f1 !important;
+  border-left-color: rgba(26,26,46,0.08) !important;
+}
+[data-mode="light"] div[style*="z-index: 1002"] a {
+  color: #1a1a2e !important;
+  border-bottom-color: rgba(26,26,46,0.06) !important;
+}
+[data-mode="light"] div[style*="z-index: 1002"] button {
+  color: #1a1a2e !important;
+  border-color: rgba(26,26,46,0.12) !important;
+}
+
+/* Logo — invert for light backgrounds */
+[data-mode="light"] header img[alt="SolPowerlines"] {
+  filter: brightness(0) saturate(100%);
+}
+[data-mode="light"] footer img[alt="SolPowerlines"] {
+  filter: none;
+}
+
+/* Headings */
+[data-mode="light"] h1,
+[data-mode="light"] h2,
+[data-mode="light"] h3 {
+  color: #1a1a2e !important;
+}
+
+/* Body text overrides (inline styles need !important) */
+[data-mode="light"] p,
+[data-mode="light"] span,
+[data-mode="light"] li {
+  color: #3d3d55 !important;
+}
+
+/* Preserve amber accent text */
+[data-mode="light"] .section-label {
+  color: #c4850c !important;
+}
+[data-mode="light"] .section-label::before {
+  background: #c4850c !important;
+}
+[data-mode="light"] [style*="color: var(--amber)"],
+[data-mode="light"] [style*="color: '#F5A623'"] {
+  color: #c4850c !important;
+}
+
+/* Section backgrounds */
+[data-mode="light"] section,
+[data-mode="light"] .section {
+  background: #f8f6f1 !important;
+  border-color: rgba(26,26,46,0.06) !important;
+}
+[data-mode="light"] section[style*="background: '#0a0a0a'"],
+[data-mode="light"] section[style*="0a0a0a"] {
+  background: #f0ede6 !important;
+}
+
+/* Hero stays dark/cinematic — no override needed for hero video area */
+[data-mode="light"] .hero {
+  background: #000 !important;
+}
+[data-mode="light"] .hero h1,
+[data-mode="light"] .hero p,
+[data-mode="light"] .hero span,
+[data-mode="light"] .hero .section-label {
+  color: inherit !important;
+}
+[data-mode="light"] .hero h1 {
+  color: #f0f0fa !important;
+}
+[data-mode="light"] .hero p {
+  color: rgba(240,240,250,0.7) !important;
+}
+[data-mode="light"] .hero .section-label {
+  color: var(--amber) !important;
+}
+
+/* Stats bar */
+[data-mode="light"] section[style*="borderTop"] {
+  border-color: rgba(26,26,46,0.08) !important;
+}
+
+/* Service cards */
+[data-mode="light"] div[style*="background: '#000'"],
+[data-mode="light"] div[style*="background: #000"] {
+  background: #f8f6f1 !important;
+}
+[data-mode="light"] div[style*="background: 'rgba(240,240,250,0.06)'"] {
+  background: rgba(26,26,46,0.04) !important;
+}
+
+/* Buttons */
+[data-mode="light"] .btn-blue {
+  background: rgba(26,26,46,0.06) !important;
+  border-color: rgba(26,26,46,0.2) !important;
+  color: #1a1a2e !important;
+}
+[data-mode="light"] .btn-blue:hover {
+  background: rgba(196,133,12,0.12) !important;
+  border-color: #c4850c !important;
+  color: #c4850c !important;
+}
+[data-mode="light"] .btn-outline {
+  border-color: rgba(26,26,46,0.2) !important;
+  color: #1a1a2e !important;
+}
+[data-mode="light"] .btn-red {
+  background: #F5A623 !important;
+  color: #000 !important;
+}
+
+/* Forms */
+[data-mode="light"] .form-group input,
+[data-mode="light"] .form-group textarea,
+[data-mode="light"] .form-group select {
+  background: #fff !important;
+  border-color: rgba(26,26,46,0.15) !important;
+  color: #1a1a2e !important;
+}
+[data-mode="light"] .form-group label {
+  color: #555566 !important;
+}
+
+/* Footer — keep dark for contrast */
+[data-mode="light"] footer {
+  background: #1a1a2e !important;
+}
+[data-mode="light"] footer h4,
+[data-mode="light"] footer p,
+[data-mode="light"] footer span,
+[data-mode="light"] footer a,
+[data-mode="light"] footer li {
+  color: rgba(240,240,250,0.5) !important;
+}
+[data-mode="light"] footer .section-label {
+  color: var(--amber) !important;
+}
+
+/* Marquee */
+[data-mode="light"] div[style*="overflow: 'hidden'"] {
+  background: #f0ede6 !important;
+  border-color: rgba(26,26,46,0.06) !important;
+}
+
+/* Carousel fade edge */
+[data-mode="light"] .carousel-wrapper::after {
+  background: linear-gradient(90deg, transparent, #f8f6f1) !important;
+}
+
+/* Team member borders */
+[data-mode="light"] div[style*="borderTop: '1px solid rgba(240,240,250"] {
+  border-color: rgba(26,26,46,0.08) !important;
+}
+
+/* Copilot button */
+[data-mode="light"] .power-toggle-btn {
+  border-color: rgba(26,26,46,0.2) !important;
+  color: #1a1a2e !important;
+}
+
+/* Scrollbar track */
+[data-mode="light"] ::-webkit-scrollbar-track {
+  background: #f0ede6;
+}
+
+/* Preloader — always dark */
+[data-mode="light"] .preloader {
+  background: #000 !important;
+}
+
+/* Power toggle in light mode — label colors */
+[data-mode="light"] .power-toggle-btn span {
+  color: inherit !important;
+}
+
+/* Video overlay sections stay cinematic */
+[data-mode="light"] section[style*="height: 'clamp(300px"] {
+  background: #000 !important;
+}
+[data-mode="light"] section[style*="height: 'clamp(300px"] h2,
+[data-mode="light"] section[style*="height: 'clamp(300px"] .section-label {
+  color: #f0f0fa !important;
+}
+
+/* ═══ Component-level Light Overrides ═══ */
+
+/* Stats section */
+[data-mode="light"] .stats-section {
+  background: #f0ede6 !important;
+  border-color: rgba(26,26,46,0.06) !important;
+}
+
+/* Service cards — light elevated cards */
+[data-mode="light"] .services-section {
+  background: #f8f6f1 !important;
+}
+[data-mode="light"] .service-grid {
+  background: rgba(26,26,46,0.06) !important;
+}
+[data-mode="light"] .service-card {
+  background: #fff !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+[data-mode="light"] .service-card h3 {
+  color: #1a1a2e !important;
+}
+[data-mode="light"] .service-card p {
+  color: #555566 !important;
+}
+[data-mode="light"] .service-card a {
+  color: #c4850c !important;
+}
+
+/* Utility cards — subtle warm tint */
+[data-mode="light"] .utilities-section {
+  background: #f0ede6 !important;
+  border-color: rgba(26,26,46,0.06) !important;
+}
+[data-mode="light"] .utility-card {
+  background: #f0ede6 !important;
+}
+[data-mode="light"] .utility-card h3 {
+  color: #c4850c !important;
+}
+[data-mode="light"] .utility-card p {
+  color: #555566 !important;
+}
+
+/* Leadership section */
+[data-mode="light"] .leadership-section {
+  background: #f8f6f1 !important;
+}
+[data-mode="light"] .leadership-section h3 {
+  color: #1a1a2e !important;
+}
+[data-mode="light"] .leadership-section p {
+  color: #555566 !important;
+}
+
+/* Crew video overlay — stays cinematic */
+[data-mode="light"] section:has(video) {
+  background: #000 !important;
+}
+[data-mode="light"] section:has(video) h2 {
+  color: #f0f0fa !important;
+}
+[data-mode="light"] section:has(video) .section-label {
+  color: var(--amber) !important;
+}
+
+/* Smooth transition for everything */
+[data-mode="light"] * {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
