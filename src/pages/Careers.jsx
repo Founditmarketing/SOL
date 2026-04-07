@@ -6,7 +6,7 @@ export default function Careers() {
   return (
     <div style={{ paddingTop: '8rem' }}>
       <section style={{ position: 'relative', minHeight: '50vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#000' }}>
-        <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?w=1400&q=80" alt="Construction" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} />
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80" alt="Power line crew at work" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.4), #000 100%)', zIndex: 1 }} />
         <div className="container" style={{ zIndex: 2, padding: '4rem 2rem' }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>

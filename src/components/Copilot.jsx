@@ -32,8 +32,8 @@ export default function Copilot() {
   return (
     <>
       <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => setIsOpen(!isOpen)}
-        style={{ position: 'fixed', bottom: '1.5rem', right: '1.5rem', zIndex: 9999, width: '52px', height: '52px', background: '#F5A623', color: '#000', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        {isOpen ? <X size={22} /> : <Bot size={22} />}
+        style={{ position: 'fixed', bottom: '1.5rem', right: '1.5rem', zIndex: 9999, width: '46px', height: '46px', background: '#F5A623', color: '#000', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', boxShadow: '0 4px 20px rgba(245,166,35,0.3)' }}>
+        {isOpen ? <X size={18} /> : <Bot size={18} />}
       </motion.button>
 
       <AnimatePresence>
