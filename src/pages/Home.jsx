@@ -185,9 +185,9 @@ export default function Home() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
             {[
-              { img: '/team-supervisor.png', name: 'Gavin Lemoine', role: 'Director of Operations', desc: 'Over 25 years of experience in overhead and underground electrical distribution. Leads contract compliance, change order management, and project tracking.' },
-              { img: '/team-dispatcher.png', name: 'Josh Fleming', role: 'Operations Manager', desc: 'Over 18 years overseeing design, development, and construction of power and communication infrastructure projects.' },
-              { img: '/team-pm.png', name: 'Kevin Sasser', role: 'Safety Manager', desc: 'CUSP certified. Dedicated to safety leadership, workforce development, and operational excellence since 1999.' },
+              { img: '/gavin-lemoine.jpg', name: 'Gavin Lemoine', role: 'Director of Operations', desc: 'Over 25 years of experience in overhead and underground electrical distribution. Leads contract compliance, change order management, and project tracking.' },
+              { img: '/josh-fleming.jpg', name: 'Josh Fleming', role: 'Operations Manager', desc: 'Over 18 years overseeing design, development, and construction of power and communication infrastructure projects.' },
+              { img: '/kevin-sasser.jpg', name: 'Kevin Sasser', role: 'Safety Manager', desc: 'CUSP certified. Dedicated to safety leadership, workforce development, and operational excellence since 1999.' },
             ].map((person, idx) => (
               <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}
                 style={{ borderTop: '1px solid rgba(240,240,250,0.08)', paddingTop: '2rem' }}>
