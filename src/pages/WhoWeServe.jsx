@@ -5,21 +5,21 @@ import { ArrowRight } from 'lucide-react';
 export default function WhoWeServe() {
   return (
     <div style={{ paddingTop: '8rem' }}>
-      <section style={{ background: '#000', padding: '4rem 2rem 0' }}>
+      <section className="page-section" style={{ background: '#000', padding: '4rem 2rem 0' }}>
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="section-label">Who We Serve</div>
             <h1 className="section-title" style={{ maxWidth: '600px' }}>Trusted by Utilities<br/>Across the Region</h1>
-            <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', maxWidth: '600px' }}>
+            <p className="page-body" style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', maxWidth: '600px' }}>
               SolPowerlines prioritizes customer relationships and is proud to provide services to electrical utility companies like Electric Cooperatives, Municipal Owned Utilities, and Investor Owned Utilities.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="section" style={{ background: '#000' }}>
+      <section className="section page-section" style={{ background: '#000' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1px', background: 'rgba(240,240,250,0.06)' }}>
+          <div className="page-card-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1px', background: 'rgba(240,240,250,0.06)' }}>
             {[
               {
                 title: 'Electric Cooperatives',
@@ -39,16 +39,17 @@ export default function WhoWeServe() {
             ].map((item, idx) => (
               <motion.div 
                 key={idx}
+                className="page-card"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 style={{ background: '#000', padding: '3rem 2.5rem' }}
               >
-                <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '0.5rem' }}>{item.stat}</div>
-                <h3 style={{ fontFamily: 'Inter', fontSize: '1.3rem', color: '#f0f0fa', fontWeight: 600, marginBottom: '1.25rem' }}>{item.title}</h3>
-                <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', marginBottom: '2rem' }}>{item.desc}</p>
-                <Link to="/contact" style={{ fontFamily: 'Barlow Condensed', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--amber)', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+                <div className="page-accent-title" style={{ fontFamily: 'Barlow Condensed', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '0.5rem' }}>{item.stat}</div>
+                <h3 className="card-title" style={{ fontFamily: 'Inter', fontSize: '1.3rem', color: '#f0f0fa', fontWeight: 600, marginBottom: '1.25rem' }}>{item.title}</h3>
+                <p className="card-body" style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', marginBottom: '2rem' }}>{item.desc}</p>
+                <Link to="/contact" className="card-link" style={{ fontFamily: 'Barlow Condensed', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--amber)', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
                   Partner With Us <ArrowRight size={14} />
                 </Link>
               </motion.div>
@@ -56,7 +57,7 @@ export default function WhoWeServe() {
           </div>
 
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} style={{ marginTop: '5rem', textAlign: 'center', maxWidth: '600px', margin: '5rem auto 0' }}>
-            <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.5)', marginBottom: '2rem' }}>
+            <p className="page-body" style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.5)', marginBottom: '2rem' }}>
               Sol Powerlines can serve your needs regardless of the scale or extent of your project requirements. We partner with our customers to facilitate T&D needs.
             </p>
             <Link to="/contact" className="btn btn-blue">

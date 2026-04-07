@@ -325,39 +325,51 @@ button {
   color: #1a1a2e !important;
 }
 
-/* Header / Nav */
-[data-mode="light"] header {
-  background-color: rgba(248,246,241,0.92) !important;
+/* Header / Nav — SCROLLED header adapts, TRANSPARENT stays light for dark hero */
+[data-mode="light"] .site-header--scrolled {
+  background-color: rgba(248,246,241,0.95) !important;
   border-bottom-color: rgba(26,26,46,0.08) !important;
 }
-[data-mode="light"] header[style*="transparent"] {
-  background-color: transparent !important;
-}
-[data-mode="light"] .desktop-nav a {
+[data-mode="light"] .site-header--scrolled .nav-link {
   color: rgba(26,26,46,0.6) !important;
 }
-[data-mode="light"] .mobile-toggle button {
+[data-mode="light"] .site-header--scrolled .nav-phone {
+  background: rgba(26,26,46,0.06) !important;
+  border-color: rgba(26,26,46,0.2) !important;
   color: #1a1a2e !important;
 }
+[data-mode="light"] .site-header--scrolled img[alt="SolPowerlines"] {
+  filter: brightness(0) saturate(100%);
+}
+[data-mode="light"] .site-header--scrolled .mobile-menu-btn {
+  color: #1a1a2e !important;
+}
+/* Transparent header (over dark hero) — ALWAYS keep light text */
+[data-mode="light"] .site-header--transparent .nav-link {
+  color: rgba(240,240,250,0.6) !important;
+}
+[data-mode="light"] .site-header--transparent img[alt="SolPowerlines"] {
+  filter: none !important;
+}
+[data-mode="light"] .site-header--transparent .mobile-menu-btn {
+  color: #f0f0fa !important;
+}
 
-/* Mobile Menu */
-[data-mode="light"] div[style*="z-index: 1002"] {
+/* Mobile Menu Panel */
+[data-mode="light"] .mobile-menu-panel {
   background: #f8f6f1 !important;
   border-left-color: rgba(26,26,46,0.08) !important;
 }
-[data-mode="light"] div[style*="z-index: 1002"] a {
+[data-mode="light"] .mobile-nav-link {
   color: #1a1a2e !important;
   border-bottom-color: rgba(26,26,46,0.06) !important;
 }
-[data-mode="light"] div[style*="z-index: 1002"] button {
+[data-mode="light"] .mobile-close-btn {
   color: #1a1a2e !important;
   border-color: rgba(26,26,46,0.12) !important;
 }
 
-/* Logo — invert for light backgrounds */
-[data-mode="light"] header img[alt="SolPowerlines"] {
-  filter: brightness(0) saturate(100%);
-}
+/* Logo — footer always keeps original */
 [data-mode="light"] footer img[alt="SolPowerlines"] {
   filter: none;
 }
@@ -574,12 +586,6 @@ button {
 [data-mode="light"] .leadership-section {
   background: #f8f6f1 !important;
 }
-[data-mode="light"] .leadership-section h3 {
-  color: #1a1a2e !important;
-}
-[data-mode="light"] .leadership-section p {
-  color: #555566 !important;
-}
 
 /* Crew video overlay — stays cinematic */
 [data-mode="light"] section:has(video) {
@@ -590,6 +596,71 @@ button {
 }
 [data-mode="light"] section:has(video) .section-label {
   color: var(--amber) !important;
+}
+
+/* ═══ UNIVERSAL PAGE-LEVEL LIGHT OVERRIDES ═══ */
+/* These target the classNames added to ALL inner pages */
+
+/* Page hero sections — ALWAYS stay dark/cinematic */
+[data-mode="light"] .page-hero {
+  background: #000 !important;
+}
+[data-mode="light"] .page-hero h1,
+[data-mode="light"] .page-hero h2 {
+  color: #f0f0fa !important;
+}
+[data-mode="light"] .page-hero p,
+[data-mode="light"] .page-hero .hero-body-text {
+  color: rgba(240,240,250,0.6) !important;
+}
+[data-mode="light"] .page-hero .section-label {
+  color: var(--amber) !important;
+}
+[data-mode="light"] .page-hero .section-label::before {
+  background: var(--amber) !important;
+}
+
+/* Page content sections — warm cream */
+[data-mode="light"] .page-section {
+  background: #f8f6f1 !important;
+  border-color: rgba(26,26,46,0.06) !important;
+}
+
+/* Page body text */
+[data-mode="light"] .page-body {
+  color: #555566 !important;
+}
+
+/* Page cards */
+[data-mode="light"] .page-card {
+  background: #fff !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  border-color: rgba(26,26,46,0.06) !important;
+}
+[data-mode="light"] .page-card-grid {
+  background: rgba(26,26,46,0.06) !important;
+}
+
+/* Card text */
+[data-mode="light"] .card-title {
+  color: #1a1a2e !important;
+}
+[data-mode="light"] .card-body {
+  color: #555566 !important;
+}
+[data-mode="light"] .card-link {
+  color: #c4850c !important;
+}
+
+/* Accent titles (amber labels) */
+[data-mode="light"] .page-accent-title {
+  color: #c4850c !important;
+}
+
+/* Contact form */
+[data-mode="light"] .contact-form-box {
+  border-color: rgba(26,26,46,0.12) !important;
+  background: #fff !important;
 }
 
 /* Smooth transition for everything */
