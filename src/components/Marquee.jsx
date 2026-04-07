@@ -16,8 +16,8 @@ export default function Marquee() {
         style={{ display: 'flex', width: 'max-content' }}>
         {items.map((item, idx) => (
           <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', padding: '0 2rem', whiteSpace: 'nowrap' }}>
-            <div style={{ width: '3px', height: '3px', background: 'var(--amber)', opacity: 0.5 }}></div>
-            <span style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', letterSpacing: '0.2em', fontWeight: 600, color: 'rgba(240,240,250,0.2)' }}>{item}</span>
+            <div style={{ width: '3px', height: '3px', background: 'var(--amber)', opacity: 0.8 }}></div>
+            <span style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', letterSpacing: '0.2em', fontWeight: 600, color: 'rgba(240,240,250,0.5)' }}>{item}</span>
           </div>
         ))}
       </motion.div>
