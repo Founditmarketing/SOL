@@ -1,78 +1,85 @@
 import { motion } from 'framer-motion';
-import { Target, Users, Zap, ShieldCheck } from 'lucide-react';
+import { Users, Zap, ShieldCheck, Heart } from 'lucide-react';
 
 export default function About() {
   return (
-    <div style={{ paddingTop: '8rem', paddingBottom: '4rem' }}>
-      <section className="section" style={{ padding: '2rem 2rem' }}>
+    <div style={{ paddingTop: '8rem' }}>
+      {/* Hero */}
+      <section style={{ position: 'relative', minHeight: '50vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#000' }}>
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1400&q=80" alt="Power Lines" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.4) 0%, #000 100%)', zIndex: 1 }} />
+        <div className="container" style={{ zIndex: 2, padding: '4rem 2rem' }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <div className="section-label">Who We Are</div>
+            <h1 className="section-title" style={{ maxWidth: '600px' }}>Dedicated to Excellence<br/>and Integrity</h1>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Mission */}
+      <section className="section" style={{ background: '#000' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: '4rem', alignItems: 'center' }}>
-            
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}>
-              <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', aspectRatio: '4/3' }}>
-                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80" alt="Transmission Lines" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, border: '1px solid var(--glass-border)', borderRadius: '16px', pointerEvents: 'none', zIndex: 2 }}></div>
-                
-                <div style={{ position: 'absolute', bottom: '1.5rem', right: '1.5rem', background: 'var(--red)', padding: '1.2rem 1.5rem', borderRadius: '10px', zIndex: 3, boxShadow: '0 20px 40px rgba(0,0,0,0.6)' }}>
-                  <div style={{ fontFamily: 'Bebas Neue', fontSize: '2.5rem', color: 'var(--dark)', lineHeight: 1 }}>VOSB</div>
-                  <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--dark)', fontWeight: 700, marginTop: '0.2rem' }}>Veteran-Owned</div>
-                </div>
-              </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem' }} className="about-grid">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
+              <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.5)', marginBottom: '1.5rem' }}>
+                SolPowerlines has the highest dedication to our employees and customers, bringing forth excellence and integrity to every task and challenge for tomorrow's possibilities.
+              </p>
+              <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.4)' }}>
+                We have provided utility construction services to Investment Owned Utilities, Electric Cooperatives, and Municipalities for years — making Sol a proven and trusted partner in the power utility space. You can count on our dependability to complete the job as we tackle today's challenges and tomorrow's possibilities.
+              </p>
             </motion.div>
-
-            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4, delay: 0.1 }}>
-              <div className="section-label">Proven Heritage</div>
-              <h2 className="section-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '1.5rem' }}>FAMILY OWNED.<br/><span style={{ color: 'var(--blue)', textShadow: '0 0 20px rgba(0, 168, 255,0.4)' }}>VALUES DRIVEN.</span></h2>
-              
-              {/* Crushed Walls of Text into punchy bullets/blurbs */}
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
-                <li style={{ fontSize: '1.1rem', color: 'var(--text)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <div style={{ width: '8px', height: '8px', background: 'var(--blue)', borderRadius: '50%', marginTop: '0.5rem', flexShrink: 0, boxShadow: '0 0 10px var(--blue)' }} />
-                  <span><strong>Fastest-Growing:</strong> A premier overhead and underground utility contractor in the Gulf South.</span>
-                </li>
-                <li style={{ fontSize: '1.1rem', color: 'var(--text)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <div style={{ width: '8px', height: '8px', background: 'var(--blue)', borderRadius: '50%', marginTop: '0.5rem', flexShrink: 0, boxShadow: '0 0 10px var(--blue)' }} />
-                  <span><strong>Veteran-Owned:</strong> Disciplined, mission-ready teams delivering world-class maintenance and response.</span>
-                </li>
-                <li style={{ fontSize: '1.1rem', color: 'var(--text)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <div style={{ width: '8px', height: '8px', background: 'var(--blue)', borderRadius: '50%', marginTop: '0.5rem', flexShrink: 0, boxShadow: '0 0 10px var(--blue)' }} />
-                  <span><strong>Relentless Execution:</strong> From city centers to the deep swamp, we complete projects safely and on time.</span>
-                </li>
-              </ul>
-
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1.5rem' }}>
-                {[
-                  { title: 'Safety First', icon: <ShieldCheck size={20} color="var(--blue)" />, desc: '0 Compromises' },
-                  { title: 'People Focused', icon: <Users size={20} color="var(--blue)" />, desc: 'Elite Crews' },
-                  { title: 'Mission Ready', icon: <Zap size={20} color="var(--blue)" />, desc: 'Storm Response' },
-                  { title: 'Proven Results', icon: <Target size={20} color="var(--blue)" />, desc: '1,000+ Projects' }
-                ].map((val) => (
-                  <div key={val.title} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', background: 'var(--dark2)', padding: '1rem', borderRadius: '10px', border: '1px solid var(--glass-border)' }}>
-                    <div style={{ width: '40px', height: '40px', background: 'rgba(0, 168, 255,0.08)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      {val.icon}
-                    </div>
-                    <div>
-                      <h4 style={{ fontFamily: 'Barlow Condensed', fontSize: '1rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--white)' }}>{val.title}</h4>
-                      <p style={{ fontSize: '0.85rem', color: 'var(--blue)', marginTop: '0.2rem' }}>{val.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
+              <h3 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '1.5rem' }}>People Matter More</h3>
+              <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.4)', marginBottom: '1.5rem' }}>
+                At the forefront of our company and our partner companies, is the value that people matter more. We stand behind this principle because prioritizing people also prioritizes their safety, experience, and overall well-being.
+              </p>
+              <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(240,240,250,0.4)' }}>
+                This same principle spans to our customers, partners, and community as well. We strive to create a diverse workforce that values this same philosophy. You can count on us to keep safety first while staying people minded.
+              </p>
             </motion.div>
+          </div>
 
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: 'rgba(240,240,250,0.06)', marginTop: '5rem' }}>
+            {[
+              { icon: <ShieldCheck size={20} color="#F5A623" />, title: 'Safety First', desc: 'Zero compromises' },
+              { icon: <Heart size={20} color="#F5A623" />, title: 'People Minded', desc: 'Our core value' },
+              { icon: <Zap size={20} color="#F5A623" />, title: '24/7 Response', desc: 'Storm ready' },
+              { icon: <Users size={20} color="#F5A623" />, title: 'Trusted Partner', desc: 'Proven & dependable' }
+            ].map((val, idx) => (
+              <motion.div key={idx} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.08 }}
+                style={{ background: '#000', padding: '2.5rem 2rem', textAlign: 'center' }}>
+                <div style={{ marginBottom: '1rem', opacity: 0.8 }}>{val.icon}</div>
+                <h4 style={{ fontFamily: 'Inter', fontSize: '0.95rem', color: '#f0f0fa', fontWeight: 600, marginBottom: '0.3rem' }}>{val.title}</h4>
+                <p style={{ fontSize: '0.8rem', color: 'rgba(240,240,250,0.35)' }}>{val.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Style for mobile breakpoint */}
-      <style>{`
-        @media(max-width: 900px) {
-          .container > div {
-            grid-template-columns: 1fr !important;
-            gap: 2.5rem !important;
-          }
-        }
-      `}</style>
+      {/* Leadership */}
+      <section className="section" style={{ background: '#0a0a0a', borderTop: '1px solid rgba(240,240,250,0.06)' }}>
+        <div className="container">
+          <div className="section-label">Leadership</div>
+          <h2 className="section-title" style={{ marginBottom: '3rem' }}>Our Team</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '800px' }}>
+            {[
+              { name: 'Gavin Lemoine', role: 'Director of Operations', bio: 'With over 25 years of experience in overhead and underground electrical distribution, Gavin brings extensive expertise to the team. Key responsibilities include contract compliance and negotiation, change order management, crew and project tracking, and overseeing submittals and approvals.' },
+              { name: 'Josh Fleming', role: 'Operations Manager', bio: 'With over 18 years of experience in overhead and underground electrical distribution, Josh oversees the design, development, and construction of power and communication infrastructure projects. He collaborates with executives and project managers to plan projects, set timelines, and allocate resources.' },
+              { name: 'Kevin Sasser', role: 'Safety Manager', bio: 'Kevin began his utility career in 1999 building a foundation in line work and distribution. He earned his Certified Utility Safety Professional (CUSP) credential in November 2025 and is dedicated to safety leadership, workforce development, and operational excellence.' }
+            ].map((person, idx) => (
+              <motion.div key={idx} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}
+                style={{ borderLeft: '2px solid var(--amber)', paddingLeft: '2rem' }}>
+                <h3 style={{ fontFamily: 'Inter', fontSize: '1.1rem', color: '#f0f0fa', fontWeight: 600, marginBottom: '0.2rem' }}>{person.name}</h3>
+                <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '1rem' }}>{person.role}</div>
+                <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.4)' }}>{person.bio}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <style>{`@media(max-width: 900px) { .about-grid { grid-template-columns: 1fr !important; gap: 3rem !important; } .container > div[style*="repeat(4"] { grid-template-columns: 1fr 1fr !important; } }`}</style>
     </div>
   );
 }

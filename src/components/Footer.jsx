@@ -2,57 +2,52 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#181818', borderTop: '1px solid #303030', padding: '5rem 2rem 2rem' }}>
-      <div style={{ maxWidth: '1300px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem' }}>
+    <footer style={{ background: '#000', borderTop: '1px solid rgba(240,240,250,0.06)', padding: '5rem 2rem 2rem' }}>
+      <div style={{ maxWidth: '1300px', margin: '0 auto', display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '3rem' }}>
         
-        <div style={{ gridColumn: 'span 2' }}>
-          <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <img 
-              src="https://solpowerlines.com/wp-content/uploads/2024/02/Sol_Logo-1-300x83.png" 
-              alt="SolPowerlines Logo" 
-              style={{ height: '40px', objectFit: 'contain' }}
-            />
+        <div>
+          <Link to="/" style={{ display: 'inline-block', marginBottom: '1.5rem' }}>
+            <img src="https://solpowerlines.com/wp-content/uploads/2024/02/Sol_Logo-1-300x83.png" alt="SolPowerlines" style={{ height: '28px', filter: 'brightness(10)' }} />
           </Link>
-          <p style={{ color: '#8F8F8F', lineHeight: 1.7, maxWidth: '300px', fontSize: '0.9rem' }}>
-            A dependable, knowledgeable, and trusted partner in power restoration, site preparation, and emergency response.
+          <p style={{ color: 'rgba(240,240,250,0.3)', lineHeight: 1.6, maxWidth: '280px', fontSize: '0.85rem' }}>
+            A dependable, knowledgeable, and trusted partner in power utility construction and emergency response.
           </p>
         </div>
 
         <div>
-          <h4 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#ffffff', marginBottom: '1.25rem' }}>Company</h4>
+          <h4 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(240,240,250,0.3)', marginBottom: '1.5rem' }}>Company</h4>
           <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {['About', 'Safety', 'Careers', 'Contact'].map(link => (
-              <li key={link}><Link to={`/${link.toLowerCase()}`} style={{ color: '#8F8F8F', transition: 'color 0.3s', fontSize: '0.9rem' }} onMouseOver={e => e.currentTarget.style.color='#DA291C'} onMouseOut={e => e.currentTarget.style.color='#8F8F8F'}>{link}</Link></li>
+              <li key={link}><Link to={`/${link.toLowerCase()}`} style={{ color: 'rgba(240,240,250,0.5)', fontSize: '0.85rem', transition: 'color 0.2s' }} onMouseOver={e => e.currentTarget.style.color='#F5A623'} onMouseOut={e => e.currentTarget.style.color='rgba(240,240,250,0.5)'}>{link}</Link></li>
             ))}
           </ul>
         </div>
 
         <div>
-          <h4 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#ffffff', marginBottom: '1.25rem' }}>Services</h4>
+          <h4 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(240,240,250,0.3)', marginBottom: '1.5rem' }}>Services</h4>
           <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            {['Distribution', 'Underground', 'Storm Restoration', 'Telecom / Fiber', 'Streetlight Repair'].map(link => (
-              <li key={link}><Link to="/services" style={{ color: '#8F8F8F', transition: 'color 0.3s', fontSize: '0.9rem' }} onMouseOver={e => e.currentTarget.style.color='#DA291C'} onMouseOut={e => e.currentTarget.style.color='#8F8F8F'}>{link}</Link></li>
+            {['Distribution', 'Underground', 'Storm Restoration', 'Telecom / Fiber', 'Streetlight'].map(link => (
+              <li key={link}><Link to="/services" style={{ color: 'rgba(240,240,250,0.5)', fontSize: '0.85rem', transition: 'color 0.2s' }} onMouseOver={e => e.currentTarget.style.color='#F5A623'} onMouseOut={e => e.currentTarget.style.color='rgba(240,240,250,0.5)'}>{link}</Link></li>
             ))}
           </ul>
         </div>
 
         <div>
-          <h4 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#ffffff', marginBottom: '1.25rem' }}>Contact</h4>
+          <h4 style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(240,240,250,0.3)', marginBottom: '1.5rem' }}>Contact</h4>
           <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            <li><a href="tel:318-776-0557" style={{ color: '#8F8F8F', fontSize: '0.9rem' }}>318.776.0557</a></li>
-            <li><a href="mailto:info@solpowerlines.com" style={{ color: '#8F8F8F', fontSize: '0.9rem' }}>info@solpowerlines.com</a></li>
-            <li><span style={{ color: '#8F8F8F', fontSize: '0.9rem' }}>1613 J.B. Hunt Drive #1708<br />Alexandria, LA 71303</span></li>
+            <li><a href="tel:318-776-0557" style={{ color: 'rgba(240,240,250,0.5)', fontSize: '0.85rem' }}>318.776.0557</a></li>
+            <li><a href="mailto:info@solpowerlines.com" style={{ color: 'rgba(240,240,250,0.5)', fontSize: '0.85rem' }}>info@solpowerlines.com</a></li>
+            <li><span style={{ color: 'rgba(240,240,250,0.3)', fontSize: '0.85rem', lineHeight: 1.5 }}>1613 J.B. Hunt Drive #1708<br/>Alexandria, LA 71303</span></li>
           </ul>
         </div>
-
       </div>
       
-      <div style={{ maxWidth: '1300px', margin: '4rem auto 0', paddingTop: '2rem', borderTop: '1px solid #303030', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-        <p style={{ fontSize: '0.8rem', color: '#666666' }}>&copy; 2026 SolPowerlines, LLC. All rights reserved.</p>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <span style={{ fontFamily: 'Barlow Condensed', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#DA291C' }}>People Matter More</span>
-        </div>
+      <div style={{ maxWidth: '1300px', margin: '4rem auto 0', paddingTop: '2rem', borderTop: '1px solid rgba(240,240,250,0.06)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+        <p style={{ fontSize: '0.75rem', color: 'rgba(240,240,250,0.2)', letterSpacing: '0.05em' }}>&copy; 2026 SolPowerlines, LLC. All rights reserved.</p>
+        <span style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', opacity: 0.6 }}>People Matter More</span>
       </div>
+
+      <style>{`@media(max-width: 900px) { footer > div:first-child { grid-template-columns: 1fr 1fr !important; } }`}</style>
     </footer>
   );
 }

@@ -6,6 +6,7 @@ import Services from './pages/Services';
 import Safety from './pages/Safety';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import WhoWeServe from './pages/WhoWeServe';
 
 import CustomCursor from './components/CustomCursor';
 import Preloader from './components/Preloader';
@@ -23,6 +24,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="services/*" element={<Services />} />
+            <Route path="who-we-serve" element={<WhoWeServe />} />
             <Route path="safety" element={<Safety />} />
             <Route path="careers" element={<Careers />} />
             <Route path="contact" element={<Contact />} />
