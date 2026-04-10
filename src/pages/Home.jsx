@@ -268,25 +268,6 @@ export default function Home() {
         </motion.div>
 
         <style>{`
-          @keyframes power-hum {
-            0%   { box-shadow: inset 0 0 120px rgba(0,168,255,0.04); }
-            50%  { box-shadow: inset 0 0 120px rgba(0,168,255,0.08); }
-            100% { box-shadow: inset 0 0 120px rgba(0,168,255,0.04); }
-          }
-          @keyframes grid-glow {
-            0%   { opacity: 0.5; filter: brightness(0.7); }
-            25%  { opacity: 1;   filter: brightness(1.8); }
-            50%  { opacity: 0.7; filter: brightness(0.85); }
-            75%  { opacity: 1;   filter: brightness(2); }
-            100% { opacity: 0.5; filter: brightness(0.7); }
-          }
-          @keyframes color-pulse {
-            0%   { opacity: 0.4; }
-            25%  { opacity: 1; }
-            50%  { opacity: 0.6; }
-            75%  { opacity: 1; }
-            100% { opacity: 0.4; }
-          }
           @keyframes rainbow-flash {
             0%, 88%, 100% { opacity: 0; }
             92% { opacity: 0.8; filter: hue-rotate(0deg); }
@@ -294,9 +275,6 @@ export default function Home() {
             96% { opacity: 0.6; filter: hue-rotate(180deg); }
             98% { opacity: 0; }
           }
-          .hero { animation: power-hum 8s ease-in-out infinite; animation-delay: 4s; }
-          .hero-persistent-grid { animation: grid-glow 8s ease-in-out infinite; animation-delay: 4s; }
-          .hero-color-shimmer { animation: color-pulse 8s ease-in-out infinite; animation-delay: 4s; }
           .hero-rainbow-shimmer { animation: rainbow-flash 12s ease-in-out infinite; animation-delay: 6s; }
         `}</style>
       </section>
