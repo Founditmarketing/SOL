@@ -90,43 +90,97 @@ function AnimatedCounter({ from, to, suffix = "" }) {
 export default function Home() {
   return (
     <div>
-      {/* ═══ HERO — Full viewport cinematic ═══ */}
+      {/* ═══ HERO — Power-On Animation ═══ */}
       <section className="hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#000' }}>
-        <video src="/2614b9d7-2845-4c7b-8590-1f19a7226eec.mp4" autoPlay loop muted playsInline preload="auto" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.45) 60%, #000000 100%)', zIndex: 1 }} />
         
-        {/* Circuit-grid schematic overlay */}
+        {/* Background image — flickers on like electricity */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0, 0.05, 0, 0.12, 0, 0.2, 0.45, 0.5] }}
+          transition={{ duration: 3, times: [0, 0.15, 0.2, 0.25, 0.35, 0.4, 0.6, 0.85, 1], ease: 'easeOut' }}
+          style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/hero-desktop.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+        />
+
+        {/* Gradient overlay — fades in after power-on */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, delay: 2 }}
+          style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 60%, #000000 100%)', zIndex: 1 }}
+        />
+
+        {/* Grid lines — charge up with flickering */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0, 0.35, 0, 0.5, 0.08] }}
+          transition={{ duration: 2.5, times: [0, 0.2, 0.25, 0.3, 0.5, 1] }}
+          style={{
+            position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
+            backgroundImage: 'linear-gradient(rgba(0,168,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(0,168,255,0.4) 1px, transparent 1px)',
+            backgroundSize: '80px 80px',
+          }}
+        />
+
+        {/* Electrical flash surge */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0, 0, 0.8, 0, 0.4, 0, 0.15, 0] }}
+          transition={{ duration: 3, times: [0, 0.18, 0.19, 0.21, 0.28, 0.32, 0.38, 0.55, 0.7] }}
+          style={{
+            position: 'absolute', inset: 0, zIndex: 3, pointerEvents: 'none',
+            background: 'radial-gradient(circle at 50% 50%, rgba(0,168,255,0.3) 0%, rgba(245,166,35,0.15) 40%, transparent 70%)',
+          }}
+        />
+
+        {/* Amber power sweep — sweeps left to right */}
+        <motion.div
+          initial={{ x: '-100%', opacity: 0 }}
+          animate={{ x: '100%', opacity: [0, 0.6, 0.6, 0] }}
+          transition={{ duration: 1.2, delay: 1.5, ease: 'easeInOut' }}
+          style={{
+            position: 'absolute', top: 0, left: 0, width: '50%', height: '100%', zIndex: 4, pointerEvents: 'none',
+            background: 'linear-gradient(90deg, transparent, rgba(245,166,35,0.2), rgba(245,166,35,0.4), rgba(245,166,35,0.2), transparent)',
+            filter: 'blur(40px)',
+          }}
+        />
+
+        {/* Horizontal power-line streaks */}
+        {[20, 40, 65, 85].map((top, i) => (
+          <motion.div key={`streak-${i}`}
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: [0, 1, 1], opacity: [0, 0.6, 0] }}
+            transition={{ duration: 0.6, delay: 1.8 + i * 0.12, ease: 'easeOut' }}
+            style={{
+              position: 'absolute', top: `${top}%`, left: 0, right: 0, height: '1px', zIndex: 4,
+              background: 'linear-gradient(90deg, transparent 5%, rgba(0,168,255,0.8) 30%, rgba(245,166,35,0.6) 70%, transparent 95%)',
+              transformOrigin: 'left center', pointerEvents: 'none',
+            }}
+          />
+        ))}
+
+        {/* Scrim */}
         <div style={{
-          position: 'absolute', inset: 0, zIndex: 2, opacity: 0.04, pointerEvents: 'none',
-          backgroundImage: `
-            linear-gradient(rgba(0,168,255,0.3) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,168,255,0.3) 1px, transparent 1px)
-          `,
-          backgroundSize: '80px 80px',
-        }} />
-        {/* Text scrim — full-width contrast behind hero text */}
-        <div style={{
-          position: 'absolute', inset: 0, zIndex: 2,
+          position: 'absolute', inset: 0, zIndex: 5,
           background: 'linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.15) 50%, transparent 85%)',
           pointerEvents: 'none',
         }} />
 
-        <div className="container" style={{ paddingTop: 'clamp(8rem, 18vh, 12rem)', zIndex: 3, position: 'relative' }}>
+        {/* Content — appears after power-on completes */}
+        <div className="container" style={{ paddingTop: 'clamp(8rem, 18vh, 12rem)', zIndex: 6, position: 'relative' }}>
 
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 2.2 }}>
             <div className="data-label" style={{ marginBottom: '1.5rem', color: '#00a8ff', fontFamily: 'JetBrains Mono', fontSize: '0.7rem', letterSpacing: '0.15em' }}>
               // Heavy Infrastructure · Rapid Response
             </div>
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }}
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 2.4 }}
             style={{ fontFamily: 'Inter', fontSize: 'clamp(3rem, 7vw, 5.5rem)', color: '#f0f0fa', lineHeight: 1.0, letterSpacing: '-0.03em', marginBottom: '1.5rem', maxWidth: '800px', fontWeight: 600 }}>
             Forging the Grid.<br/>
-            Restoring the <PowerOnText color="#F5A623" delay={1.8}>Power.</PowerOnText>
+            Restoring the <PowerOnText color="#F5A623" delay={0.8}>Power.</PowerOnText>
           </motion.h1>
 
-          {/* Service micro-badges */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.65 }}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2.6 }}
             style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
             {['Distribution', 'Underground', 'Storm Restoration', 'Fiber', 'Streetlight'].map((tag) => (
               <span key={tag} style={{
@@ -140,12 +194,12 @@ export default function Home() {
             ))}
           </motion.div>
 
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }}
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2.7 }}
             style={{ fontSize: '1.05rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.7)', maxWidth: '520px', marginBottom: '2.5rem' }}>
             We build, maintain, and restore the critical high-voltage networks that keep the Gulf South running. When the skies darken, our crews activate—delivering 24/7 reliability.
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.9 }}
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2.9 }}
             style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', width: '100%' }}>
             <Link to="/contact" className="btn" style={{
               background: 'var(--amber)', color: '#000', fontWeight: 700,
@@ -155,11 +209,16 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <motion.div className="desktop-only" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
-          style={{ position: 'absolute', bottom: '3rem', left: '50%', transform: 'translateX(-50%)', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+        <motion.div className="desktop-only" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 3.2 }}
+          style={{ position: 'absolute', bottom: '3rem', left: '50%', transform: 'translateX(-50%)', zIndex: 6, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
           <motion.div animate={{ y: [0, 12, 0] }} transition={{ repeat: Infinity, duration: 2.5 }}
             style={{ width: '1px', height: '50px', background: 'linear-gradient(to bottom, rgba(245,166,35,0.6), transparent)' }} />
         </motion.div>
+
+        <style>{`
+          @keyframes power-hum { 0%, 100% { box-shadow: inset 0 0 100px rgba(0,168,255,0.02); } 50% { box-shadow: inset 0 0 100px rgba(0,168,255,0.06); } }
+          .hero { animation: power-hum 4s ease-in-out infinite; animation-delay: 3s; }
+        `}</style>
       </section>
 
       {/* ═══ STATS BAR ═══ */}
