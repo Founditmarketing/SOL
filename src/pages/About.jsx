@@ -55,6 +55,18 @@ export default function About() {
               </motion.div>
             ))}
           </div>
+
+          {/* ═══ THE CRUCIBLE — Storm Response Simulator ═══ */}
+          <div style={{ marginTop: '4rem' }}>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <div className="section-label">Interactive Experience</div>
+              <h2 className="section-title" style={{ marginBottom: '1rem' }}>Think You Can<br/>Save the Grid?</h2>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', maxWidth: '600px', marginBottom: '2rem' }}>
+                Storm response is a high-speed logic puzzle. Our crews solve it under extreme conditions every hurricane season.
+              </p>
+            </motion.div>
+            <CrucibleGame />
+          </div>
         </div>
       </section>
 
@@ -80,22 +92,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ═══ THE CRUCIBLE — Storm Response Simulator ═══ */}
-      <section className="section page-section" style={{ background: '#000', borderTop: '1px solid rgba(240,240,250,0.06)' }}>
-        <div className="container" style={{ maxWidth: '900px' }}>
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <div className="section-label">Interactive Experience</div>
-            <h2 className="section-title" style={{ marginBottom: '1rem' }}>Think You Can<br/>Save the Grid?</h2>
-            <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', maxWidth: '600px', marginBottom: '3rem' }}>
-              Storm response is a high-speed logic puzzle. Our crews solve it under extreme conditions every hurricane season. See if you can keep the lights on.
-            </p>
-          </motion.div>
-          <CrucibleGame />
-        </div>
-      </section>
-
       <style>{`@media(max-width: 900px) { .about-grid { grid-template-columns: 1fr !important; gap: 3rem !important; } .container > div[style*="repeat(4"] { grid-template-columns: 1fr 1fr !important; } }`}</style>
     </div>
   );
 }
-
