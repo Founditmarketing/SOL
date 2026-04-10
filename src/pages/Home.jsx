@@ -107,10 +107,10 @@ export default function Home() {
         }} />
 
         <div className="container" style={{ paddingTop: 'clamp(8rem, 18vh, 12rem)', zIndex: 3, position: 'relative' }}>
-          {/* Text scrim — darkens BG only behind text area */}
+          {/* Text scrim — darkens BG behind text area */}
           <div style={{
-            position: 'absolute', top: 0, left: '-4rem', bottom: 0, width: 'min(700px, 90vw)',
-            background: 'radial-gradient(ellipse at left center, rgba(0,0,0,0.6) 0%, transparent 75%)',
+            position: 'absolute', top: 0, left: '-2rem', bottom: 0, right: '-2rem',
+            background: 'linear-gradient(90deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)',
             pointerEvents: 'none', zIndex: -1,
           }} />
 
