@@ -92,8 +92,7 @@ export default function Home() {
     <div>
       {/* ═══ HERO — Full viewport cinematic ═══ */}
       <section className="hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#000' }}>
-        <video className="desktop-video" src="/2614b9d7-2845-4c7b-8590-1f19a7226eec.mp4" autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }} />
-        <video className="mobile-video" src="/2614b9d7-2845-4c7b-8590-1f19a7226eec.mp4" autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.55 }} />
+        <video src="/2614b9d7-2845-4c7b-8590-1f19a7226eec.mp4" autoPlay loop muted playsInline preload="auto" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.45) 60%, #000000 100%)', zIndex: 1 }} />
         
         {/* Circuit-grid schematic overlay */}
@@ -108,7 +107,7 @@ export default function Home() {
         {/* Text scrim — full-width contrast behind hero text */}
         <div style={{
           position: 'absolute', inset: 0, zIndex: 2,
-          background: 'linear-gradient(90deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 50%, transparent 85%)',
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.15) 50%, transparent 85%)',
           pointerEvents: 'none',
         }} />
 
