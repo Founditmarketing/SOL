@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 /**
  * Power grid animation for sub-page hero sections.
  * Shorter, snappier version of the homepage power-on.
- * Includes persistent grid pulse after power-on.
+ * Grid powers on and stays on — no pulsing.
  */
 export default function PageHeroGrid() {
   return (
@@ -70,7 +70,7 @@ export default function PageHeroGrid() {
         }}
       />
 
-      {/* Persistent grid — stays on with pulse */}
+      {/* Persistent grid — stays on steady */}
       <motion.div className="page-persistent-grid"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.12 }}
@@ -88,18 +88,7 @@ export default function PageHeroGrid() {
         background: 'radial-gradient(ellipse at 30% 50%, rgba(0,168,255,0.06) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, rgba(245,166,35,0.04) 0%, transparent 45%)',
       }} />
 
-      <style>{`
-        @keyframes page-grid-glow {
-          0%, 100% { opacity: 0.05; filter: brightness(0.3); }
-          50% { opacity: 1.8; filter: brightness(2); }
-        }
-        @keyframes page-color-pulse {
-          0%, 100% { opacity: 0; }
-          50% { opacity: 1; }
-        }
-        .page-persistent-grid { animation: page-grid-glow 8s ease-in-out infinite; animation-delay: 2s; }
-        .page-color-shimmer { animation: page-color-pulse 8s ease-in-out infinite; animation-delay: 2s; }
-      `}</style>
+      {/* Grid stays on steady — no pulse */}
     </>
   );
 }

@@ -185,7 +185,7 @@ export default function Home() {
           />
         ))}
 
-        {/* Layer 8: Persistent ALIVE grid — stays visible and pulses */}
+        {/* Layer 8: Persistent ALIVE grid — stays visible and steady */}
         <motion.div className="hero-persistent-grid"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.12 }}
@@ -268,18 +268,6 @@ export default function Home() {
         </motion.div>
 
         <style>{`
-          @keyframes power-hum {
-            0%, 100% { box-shadow: inset 0 0 120px rgba(0,168,255,0.02); }
-            50% { box-shadow: inset 0 0 120px rgba(0,168,255,0.08); }
-          }
-          @keyframes grid-glow {
-            0%, 100% { opacity: 0.05; filter: brightness(0.3); }
-            50% { opacity: 1.8; filter: brightness(2); }
-          }
-          @keyframes color-pulse {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
-          }
           @keyframes rainbow-flash {
             0%, 88%, 100% { opacity: 0; }
             92% { opacity: 0.8; filter: hue-rotate(0deg); }
@@ -287,9 +275,6 @@ export default function Home() {
             96% { opacity: 0.6; filter: hue-rotate(180deg); }
             98% { opacity: 0; }
           }
-          .hero { animation: power-hum 8s ease-in-out infinite; animation-delay: 4s; }
-          .hero-persistent-grid { animation: grid-glow 8s ease-in-out infinite; animation-delay: 4s; }
-          .hero-color-shimmer { animation: color-pulse 8s ease-in-out infinite; animation-delay: 4s; }
           .hero-rainbow-shimmer { animation: rainbow-flash 12s ease-in-out infinite; animation-delay: 6s; }
         `}</style>
       </section>
