@@ -143,19 +143,7 @@ export default function Home() {
           }}
         />
 
-        {/* Layer 5: Mid-sequence streaks — electricity arcing during the struggle */}
-        {[35, 60].map((top, i) => (
-          <motion.div key={`mid-streak-${i}`}
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{ scaleX: [0, 1, 1, 0], opacity: [0, 0.6, 0.3, 0] }}
-            transition={{ duration: 0.5, delay: 1.6 + i * 0.3, ease: 'easeOut' }}
-            style={{
-              position: 'absolute', top: `${top}%`, left: 0, right: 0, height: '1px', zIndex: 4,
-              background: 'linear-gradient(90deg, transparent, rgba(0,168,255,0.8) 30%, rgba(245,166,35,0.5) 70%, transparent)',
-              transformOrigin: 'left center', pointerEvents: 'none',
-            }}
-          />
-        ))}
+
 
         {/* Layer 5b: Amber power sweep at the climax */}
         <motion.div
@@ -209,21 +197,7 @@ export default function Home() {
           }}
         />
 
-        {/* Layer 9: Repeating electrical streaks — fire across the grid on a loop */}
-        {[18, 42, 68, 90].map((top, i) => (
-          <div key={`live-h-${i}`} className={`hero-streak-h hero-streak-h-${i}`} style={{
-            position: 'absolute', top: `${top}%`, left: 0, right: 0, height: '1px', zIndex: 3, pointerEvents: 'none',
-            background: 'linear-gradient(90deg, transparent, rgba(0,168,255,0.7) 20%, rgba(245,166,35,0.5) 50%, rgba(0,168,255,0.7) 80%, transparent)',
-            transformOrigin: 'left center',
-          }} />
-        ))}
-        {[22, 55, 82].map((left, i) => (
-          <div key={`live-v-${i}`} className={`hero-streak-v hero-streak-v-${i}`} style={{
-            position: 'absolute', left: `${left}%`, top: 0, bottom: 0, width: '1px', zIndex: 3, pointerEvents: 'none',
-            background: 'linear-gradient(180deg, transparent, rgba(0,168,255,0.6) 20%, rgba(245,166,35,0.4) 50%, rgba(0,168,255,0.6) 80%, transparent)',
-            transformOrigin: 'top center',
-          }} />
-        ))}
+
 
         {/* Scrim for text readability */}
         <div style={{
@@ -287,33 +261,12 @@ export default function Home() {
             0%, 100% { box-shadow: inset 0 0 120px rgba(0,168,255,0.02); }
             50% { box-shadow: inset 0 0 120px rgba(0,168,255,0.06); }
           }
-          @keyframes grid-shimmer {
-            0%, 100% { opacity: 0.10; }
-            33% { opacity: 0.14; }
-            66% { opacity: 0.08; }
+          @keyframes grid-glow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 1.4; filter: brightness(1.3); }
           }
-          @keyframes streak-fire-h {
-            0%, 80%, 100% { opacity: 0; transform: scaleX(0); }
-            85% { opacity: 0.8; transform: scaleX(1); }
-            90% { opacity: 0.4; transform: scaleX(1); }
-            95% { opacity: 0; transform: scaleX(1); }
-          }
-          @keyframes streak-fire-v {
-            0%, 80%, 100% { opacity: 0; transform: scaleY(0); }
-            85% { opacity: 0.6; transform: scaleY(1); }
-            90% { opacity: 0.3; transform: scaleY(1); }
-            95% { opacity: 0; transform: scaleY(1); }
-          }
-          .hero { animation: power-hum 5s ease-in-out infinite; animation-delay: 4.5s; }
-          .hero-grid-lines { animation: grid-shimmer 8s ease-in-out infinite; animation-delay: 4.5s; }
-          .hero-persistent-grid { animation: grid-shimmer 6s ease-in-out infinite; animation-delay: 5s; }
-          .hero-streak-h-0 { animation: streak-fire-h 7s ease-out infinite; animation-delay: 5s; }
-          .hero-streak-h-1 { animation: streak-fire-h 9s ease-out infinite; animation-delay: 6.5s; }
-          .hero-streak-h-2 { animation: streak-fire-h 8s ease-out infinite; animation-delay: 8s; }
-          .hero-streak-h-3 { animation: streak-fire-h 10s ease-out infinite; animation-delay: 7s; }
-          .hero-streak-v-0 { animation: streak-fire-v 11s ease-out infinite; animation-delay: 5.5s; }
-          .hero-streak-v-1 { animation: streak-fire-v 8s ease-out infinite; animation-delay: 7.5s; }
-          .hero-streak-v-2 { animation: streak-fire-v 9s ease-out infinite; animation-delay: 9s; }
+          .hero { animation: power-hum 5s ease-in-out infinite; animation-delay: 4s; }
+          .hero-persistent-grid { animation: grid-glow 4s ease-in-out infinite; animation-delay: 4s; }
         `}</style>
       </section>
 
