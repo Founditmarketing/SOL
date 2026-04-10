@@ -93,22 +93,38 @@ export default function Home() {
       {/* ═══ HERO — Power-On Animation ═══ */}
       <section className="hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#000' }}>
 
-        {/* Layer 1: Deep dark base with subtle radial glow that builds */}
+        {/* Layer 1: Deep dark base */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 3, delay: 2 }}
+          transition={{ duration: 2, delay: 2.5 }}
           style={{
             position: 'absolute', inset: 0,
             background: 'radial-gradient(ellipse at 30% 50%, rgba(0,20,40,0.8) 0%, rgba(0,5,15,0.4) 50%, #000 100%)',
           }}
         />
 
-        {/* Layer 2: Grid lines — phase 1: single flicker at 1s */}
+        {/* Layer 2: Grid lines — starts with single flicker, builds to rapid bursts */}
         <motion.div className="hero-grid-lines"
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0, 0, 0.4, 0, 0, 0, 0.3, 0, 0.5, 0.06] }}
-          transition={{ duration: 4.5, times: [0, 0.1, 0.15, 0.18, 0.22, 0.3, 0.4, 0.44, 0.5, 0.7, 1] }}
+          animate={{ opacity: [
+            0, 0, 0,           // 0.0s-0.6s: darkness
+            0.5, 0,            // 0.7s: first flicker — snap on, snap off
+            0, 0,              // 0.9s-1.0s: dark again. tension.
+            0.3, 0,            // 1.2s: second flicker — weaker
+            0.6, 0, 0.4, 0,   // 1.5s: rapid double-tap — trying harder
+            0.7, 0.2, 0.8, 0, // 2.0s: surging — almost there
+            0.9, 0.5, 0.15    // 2.5s: HOLDS, settles to idle
+          ] }}
+          transition={{ duration: 4, times: [
+            0, 0.05, 0.15,
+            0.18, 0.22,
+            0.25, 0.28,
+            0.32, 0.36,
+            0.40, 0.43, 0.46, 0.49,
+            0.52, 0.56, 0.60, 0.64,
+            0.72, 0.82, 1
+          ] }}
           style={{
             position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
             backgroundImage: 'linear-gradient(rgba(0,168,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,168,255,0.5) 1px, transparent 1px)',
@@ -116,14 +132,14 @@ export default function Home() {
           }}
         />
 
-        {/* Layer 3: Radial grid glow — pulses from center like a power source */}
+        {/* Layer 3: Radial power-source glow — pulses with each attempt */}
         <motion.div
           initial={{ opacity: 0, scale: 0.3 }}
-          animate={{ 
-            opacity: [0, 0, 0, 0.6, 0, 0, 0.4, 0, 0.8, 0.3, 0],
-            scale: [0.3, 0.3, 0.3, 1.2, 0.3, 0.3, 0.8, 0.3, 1.5, 2, 3]
+          animate={{
+            opacity: [0, 0, 0.5, 0, 0, 0.3, 0, 0.5, 0, 0.6, 0.2, 0.8, 0.3, 0],
+            scale:   [0.3, 0.3, 1.0, 0.3, 0.3, 0.7, 0.3, 1.0, 0.3, 1.3, 0.8, 1.8, 2.5, 3]
           }}
-          transition={{ duration: 4.5, times: [0, 0.1, 0.15, 0.18, 0.22, 0.3, 0.44, 0.5, 0.7, 0.85, 1] }}
+          transition={{ duration: 4, times: [0, 0.15, 0.18, 0.22, 0.28, 0.32, 0.36, 0.40, 0.49, 0.52, 0.56, 0.60, 0.75, 1] }}
           style={{
             position: 'absolute', top: '50%', left: '30%', width: '400px', height: '400px',
             marginTop: '-200px', marginLeft: '-200px',
@@ -132,22 +148,48 @@ export default function Home() {
           }}
         />
 
-        {/* Layer 4: "Breaker thrown" — hard flash at the power-on moment */}
+        {/* Layer 4: Breaker attempts — multiple flashes building in intensity */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.6, 0, 0.3, 0] }}
-          transition={{ duration: 4.5, times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.55, 0.6, 0.64, 0.66, 0.68, 0.72, 0.74, 0.8] }}
+          animate={{ opacity: [
+            0, 0, 0,
+            0.15, 0,            // first attempt — dim flash
+            0, 0.25, 0,         // second attempt — brighter
+            0.4, 0, 0.5, 0,     // rapid attempts
+            1, 0.6, 0, 0.2, 0   // BREAKER THROWN — full bright
+          ] }}
+          transition={{ duration: 4, times: [
+            0, 0.15, 0.17,
+            0.19, 0.22,
+            0.30, 0.33, 0.36,
+            0.40, 0.43, 0.46, 0.49,
+            0.60, 0.62, 0.66, 0.68, 0.72
+          ] }}
           style={{
             position: 'absolute', inset: 0, zIndex: 3, pointerEvents: 'none',
-            background: 'rgba(200,220,255,0.15)',
+            background: 'rgba(200,220,255,0.12)',
           }}
         />
 
-        {/* Layer 5: Amber power sweep at the climax */}
+        {/* Layer 5: Mid-sequence streaks — electricity arcing during the struggle */}
+        {[35, 60].map((top, i) => (
+          <motion.div key={`mid-streak-${i}`}
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: [0, 1, 1, 0], opacity: [0, 0.6, 0.3, 0] }}
+            transition={{ duration: 0.5, delay: 1.6 + i * 0.3, ease: 'easeOut' }}
+            style={{
+              position: 'absolute', top: `${top}%`, left: 0, right: 0, height: '1px', zIndex: 4,
+              background: 'linear-gradient(90deg, transparent, rgba(0,168,255,0.8) 30%, rgba(245,166,35,0.5) 70%, transparent)',
+              transformOrigin: 'left center', pointerEvents: 'none',
+            }}
+          />
+        ))}
+
+        {/* Layer 5b: Amber power sweep at the climax */}
         <motion.div
           initial={{ x: '-100%', opacity: 0 }}
           animate={{ x: '200%', opacity: [0, 0.5, 0.7, 0.5, 0] }}
-          transition={{ duration: 1.5, delay: 2.8, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 1.2, delay: 2.2, ease: [0.25, 0.1, 0.25, 1] }}
           style={{
             position: 'absolute', top: 0, left: 0, width: '40%', height: '100%', zIndex: 4, pointerEvents: 'none',
             background: 'linear-gradient(90deg, transparent, rgba(245,166,35,0.15), rgba(245,166,35,0.35), rgba(245,166,35,0.15), transparent)',
