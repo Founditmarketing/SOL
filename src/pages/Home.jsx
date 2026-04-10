@@ -203,6 +203,12 @@ export default function Home() {
           background: 'radial-gradient(ellipse at 30% 50%, rgba(0,168,255,0.08) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, rgba(245,166,35,0.06) 0%, transparent 45%)',
         }} />
 
+        {/* Ongoing: Rainbow shimmer — brief prismatic flash every ~12s */}
+        <div className="hero-rainbow-shimmer" style={{
+          position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
+          background: 'linear-gradient(135deg, rgba(255,0,80,0.06), rgba(255,165,0,0.06), rgba(255,255,0,0.04), rgba(0,255,120,0.04), rgba(0,168,255,0.06), rgba(130,0,255,0.06))',
+          opacity: 0,
+        }} />
 
         {/* Scrim for text readability */}
         <div style={{
@@ -274,9 +280,17 @@ export default function Home() {
             0%, 100% { opacity: 0; }
             50% { opacity: 1; }
           }
+          @keyframes rainbow-flash {
+            0%, 88%, 100% { opacity: 0; }
+            92% { opacity: 0.8; filter: hue-rotate(0deg); }
+            94% { opacity: 1; filter: hue-rotate(90deg); }
+            96% { opacity: 0.6; filter: hue-rotate(180deg); }
+            98% { opacity: 0; }
+          }
           .hero { animation: power-hum 8s ease-in-out infinite; animation-delay: 4s; }
           .hero-persistent-grid { animation: grid-glow 8s ease-in-out infinite; animation-delay: 4s; }
           .hero-color-shimmer { animation: color-pulse 8s ease-in-out infinite; animation-delay: 4s; }
+          .hero-rainbow-shimmer { animation: rainbow-flash 12s ease-in-out infinite; animation-delay: 6s; }
         `}</style>
       </section>
 
