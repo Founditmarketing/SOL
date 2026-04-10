@@ -90,7 +90,7 @@ export default function StopWorkSimulator() {
           }}>
             <AlertTriangle size={12} /> STOP-WORK AUTHORITY SIMULATOR
           </div>
-          <div style={{ fontFamily: 'Inter', fontSize: '0.75rem', color: 'rgba(240,240,250,0.35)', marginTop: '2px' }}>
+          <div style={{ fontFamily: 'Inter', fontSize: '0.75rem', color: 'rgba(240,240,250,0.6)', marginTop: '2px' }}>
             What would you do? Every SolPowerlines employee has the power — and obligation — to stop work.
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function StopWorkSimulator() {
             borderRadius: '6px', padding: '0.35rem 0.7rem',
             fontFamily: "'JetBrains Mono', monospace", fontSize: '0.5rem',
             fontWeight: 600, letterSpacing: '0.08em',
-            color: 'rgba(240,240,250,0.4)', cursor: 'pointer',
+            color: 'rgba(240,240,250,0.6)', cursor: 'pointer',
             display: 'flex', alignItems: 'center', gap: '4px',
           }}>
             <RotateCcw size={10} /> RESET
@@ -118,7 +118,7 @@ export default function StopWorkSimulator() {
               <div style={{ fontFamily: 'Inter', fontSize: '1.1rem', fontWeight: 600, color: '#f0f0fa', marginBottom: '0.5rem' }}>
                 Can You Make the Right Call?
               </div>
-              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.65rem', color: 'rgba(240,240,250,0.4)', maxWidth: '400px', margin: '0 auto 2rem', lineHeight: 1.8 }}>
+              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.65rem', color: 'rgba(240,240,250,0.6)', maxWidth: '400px', margin: '0 auto 2rem', lineHeight: 1.8 }}>
                 You'll face a real job-site scenario. Your crew is counting on you to make the right decision.
               </div>
               <button onClick={() => setStarted(true)} style={{
@@ -138,7 +138,7 @@ export default function StopWorkSimulator() {
               <div style={{
                 fontFamily: "'JetBrains Mono', monospace", fontSize: '0.45rem',
                 fontWeight: 600, letterSpacing: '0.12em',
-                color: 'rgba(240,240,250,0.2)', marginBottom: '0.75rem',
+                color: 'rgba(240,240,250,0.5)', marginBottom: '0.75rem',
               }}>
                 SCENARIO {scenarioIndex + 1} / {SCENARIOS.length}
               </div>
@@ -159,7 +159,7 @@ export default function StopWorkSimulator() {
               <div style={{
                 fontFamily: "'JetBrains Mono', monospace", fontSize: '0.5rem',
                 fontWeight: 600, letterSpacing: '0.12em',
-                color: 'rgba(240,240,250,0.25)', marginBottom: '0.75rem', textAlign: 'center',
+                color: 'rgba(240,240,250,0.55)', marginBottom: '0.75rem', textAlign: 'center',
               }}>
                 WHAT DO YOU DO?
               </div>
@@ -249,7 +249,7 @@ export default function StopWorkSimulator() {
                   <div style={{
                     fontFamily: "'JetBrains Mono', monospace", fontSize: '0.55rem',
                     fontWeight: 600, letterSpacing: '0.1em',
-                    color: 'rgba(240,240,250,0.25)', marginTop: '0.5rem',
+                    color: 'rgba(240,240,250,0.55)', marginTop: '0.5rem',
                   }}>
                     ALL SCENARIOS COMPLETE · SAFETY IS A MINDSET
                   </div>

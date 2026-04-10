@@ -98,7 +98,7 @@ export default function SafetyHeatmap() {
           }}>
             <Calendar size={12} /> {year} SAFETY RECORD
           </div>
-          <div style={{ fontFamily: 'Inter', fontSize: '0.75rem', color: 'rgba(240,240,250,0.35)' }}>
+          <div style={{ fontFamily: 'Inter', fontSize: '0.75rem', color: 'rgba(240,240,250,0.6)' }}>
             {data.length} days tracked · {safeRate}% incident-free
           </div>
         </div>
@@ -113,7 +113,7 @@ export default function SafetyHeatmap() {
           ].map(item => (
             <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
               <div style={{ width: '8px', height: '8px', borderRadius: '2px', background: item.color }} />
-              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.4rem', color: 'rgba(240,240,250,0.3)', letterSpacing: '0.05em' }}>
+              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.45rem', color: 'rgba(240,240,250,0.6)', letterSpacing: '0.05em' }}>
                 {item.label}
               </span>
             </div>
@@ -126,7 +126,7 @@ export default function SafetyHeatmap() {
         {MONTHS.map((m, i) => (
           <div key={m} style={{
             fontFamily: "'JetBrains Mono', monospace", fontSize: '0.4rem',
-            color: 'rgba(240,240,250,0.2)', letterSpacing: '0.05em',
+            color: 'rgba(240,240,250,0.5)', letterSpacing: '0.05em',
             width: `${100 / 12}%`, textAlign: 'left',
           }}>
             {m}
@@ -142,7 +142,7 @@ export default function SafetyHeatmap() {
             <div key={i} style={{
               width: '12px', height: '11px',
               fontFamily: "'JetBrains Mono', monospace", fontSize: '0.35rem',
-              color: 'rgba(240,240,250,0.15)', display: 'flex',
+              color: 'rgba(240,240,250,0.45)', display: 'flex',
               alignItems: 'center', justifyContent: 'flex-end',
             }}>
               {d}
@@ -186,7 +186,7 @@ export default function SafetyHeatmap() {
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '1.1rem', fontWeight: 800, color: stat.color }}>
               {stat.value}
             </div>
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.4rem', fontWeight: 600, letterSpacing: '0.1em', color: 'rgba(240,240,250,0.2)' }}>
+            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.45rem', fontWeight: 600, letterSpacing: '0.1em', color: 'rgba(240,240,250,0.55)' }}>
               {stat.label}
             </div>
           </div>

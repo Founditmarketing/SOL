@@ -25,7 +25,7 @@ function TimeUnit({ value, label }) {
         fontSize: '0.45rem',
         fontWeight: 600,
         letterSpacing: '0.15em',
-        color: 'rgba(0,230,118,0.4)',
+        color: 'rgba(0,230,118,0.7)',
         marginTop: '6px',
       }}>
         {label}
@@ -40,7 +40,7 @@ function Separator() {
       fontFamily: "'JetBrains Mono', monospace",
       fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
       fontWeight: 300,
-      color: 'rgba(0,230,118,0.2)',
+      color: 'rgba(0,230,118,0.4)',
       lineHeight: 1,
       alignSelf: 'flex-start',
       paddingTop: '0.15em',
@@ -112,7 +112,7 @@ export default function IncidentCounter() {
 
       <div style={{
         fontFamily: 'Inter', fontSize: '0.8rem',
-        color: 'rgba(240,240,250,0.35)', marginBottom: '1.5rem',
+        color: 'rgba(240,240,250,0.6)', marginBottom: '1.5rem',
       }}>
         Since last recordable incident
       </div>
@@ -137,7 +137,7 @@ export default function IncidentCounter() {
         fontFamily: "'JetBrains Mono', monospace",
         fontSize: '0.45rem', fontWeight: 500,
         letterSpacing: '0.1em',
-        color: 'rgba(240,240,250,0.15)',
+        color: 'rgba(240,240,250,0.4)',
         marginTop: '1.5rem',
       }}>
         EVERY SECOND COUNTS · EVERY WORKER HOME SAFE

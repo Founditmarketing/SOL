@@ -88,7 +88,7 @@ export default function PPEDiagram() {
         }}>
           PPE REQUIREMENTS · INTERACTIVE DIAGRAM
         </div>
-        <div style={{ fontFamily: 'Inter', fontSize: '0.75rem', color: 'rgba(240,240,250,0.35)' }}>
+        <div style={{ fontFamily: 'Inter', fontSize: '0.75rem', color: 'rgba(240,240,250,0.6)' }}>
           {activeZone ? `Inspecting: ${active?.label}` : 'Tap any zone to view PPE specifications'}
         </div>
       </div>
@@ -228,7 +228,7 @@ export default function PPEDiagram() {
               >
                 <div style={{
                   fontFamily: "'JetBrains Mono', monospace", fontSize: '0.55rem',
-                  color: 'rgba(240,240,250,0.15)', letterSpacing: '0.1em',
+                  color: 'rgba(240,240,250,0.45)', letterSpacing: '0.1em',
                   lineHeight: 2,
                 }}>
                   ← TAP A ZONE ON THE<br/>LINEMAN TO INSPECT PPE
@@ -244,12 +244,12 @@ export default function PPEDiagram() {
                         background: 'none', border: 'none', cursor: 'pointer',
                         fontFamily: "'JetBrains Mono', monospace", fontSize: '0.5rem',
                         fontWeight: 600, letterSpacing: '0.08em',
-                        color: 'rgba(240,240,250,0.3)', textAlign: 'left',
+                        color: 'rgba(240,240,250,0.5)', textAlign: 'left',
                         padding: '0.3rem 0.5rem', borderRadius: '4px',
                         transition: 'all 0.2s',
                       }}
                       onMouseEnter={(e) => { e.currentTarget.style.color = zone.color; e.currentTarget.style.background = `${zone.color}08`; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(240,240,250,0.3)'; e.currentTarget.style.background = 'none'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(240,240,250,0.5)'; e.currentTarget.style.background = 'none'; }}
                     >
                       ▸ {zone.label}
                     </button>

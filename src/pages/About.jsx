@@ -65,7 +65,10 @@ export default function About() {
                 Storm response is a high-speed logic puzzle. Our crews solve it under extreme conditions every hurricane season.
               </p>
             </motion.div>
-            <CrucibleGame />
+            <div className="crucible-game-wrapper">
+              <CrucibleGame />
+            </div>
+            <style>{`@media(max-width: 600px) { .crucible-game-wrapper { margin-left: -1.5rem; margin-right: -1.5rem; width: calc(100% + 3rem); } }`}</style>
           </div>
         </div>
       </section>
