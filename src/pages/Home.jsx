@@ -92,95 +92,132 @@ export default function Home() {
     <div>
       {/* ═══ HERO — Power-On Animation ═══ */}
       <section className="hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#000' }}>
-        
-        {/* Background image — flickers on like electricity */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0, 0.05, 0, 0.12, 0, 0.2, 0.45, 0.5] }}
-          transition={{ duration: 3, times: [0, 0.15, 0.2, 0.25, 0.35, 0.4, 0.6, 0.85, 1], ease: 'easeOut' }}
-          style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/hero-desktop.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
-        />
 
-        {/* Gradient overlay — fades in after power-on */}
+        {/* Layer 1: Deep dark base with subtle radial glow that builds */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 2 }}
-          style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 60%, #000000 100%)', zIndex: 1 }}
+          transition={{ duration: 3, delay: 2 }}
+          style={{
+            position: 'absolute', inset: 0,
+            background: 'radial-gradient(ellipse at 30% 50%, rgba(0,20,40,0.8) 0%, rgba(0,5,15,0.4) 50%, #000 100%)',
+          }}
         />
 
-        {/* Grid lines — charge up with flickering */}
-        <motion.div
+        {/* Layer 2: Grid lines — phase 1: single flicker at 1s */}
+        <motion.div className="hero-grid-lines"
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0, 0.35, 0, 0.5, 0.08] }}
-          transition={{ duration: 2.5, times: [0, 0.2, 0.25, 0.3, 0.5, 1] }}
+          animate={{ opacity: [0, 0, 0, 0.4, 0, 0, 0, 0.3, 0, 0.5, 0.06] }}
+          transition={{ duration: 4.5, times: [0, 0.1, 0.15, 0.18, 0.22, 0.3, 0.4, 0.44, 0.5, 0.7, 1] }}
           style={{
             position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
-            backgroundImage: 'linear-gradient(rgba(0,168,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(0,168,255,0.4) 1px, transparent 1px)',
+            backgroundImage: 'linear-gradient(rgba(0,168,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,168,255,0.5) 1px, transparent 1px)',
             backgroundSize: '80px 80px',
           }}
         />
 
-        {/* Electrical flash surge */}
+        {/* Layer 3: Radial grid glow — pulses from center like a power source */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.3 }}
+          animate={{ 
+            opacity: [0, 0, 0, 0.6, 0, 0, 0.4, 0, 0.8, 0.3, 0],
+            scale: [0.3, 0.3, 0.3, 1.2, 0.3, 0.3, 0.8, 0.3, 1.5, 2, 3]
+          }}
+          transition={{ duration: 4.5, times: [0, 0.1, 0.15, 0.18, 0.22, 0.3, 0.44, 0.5, 0.7, 0.85, 1] }}
+          style={{
+            position: 'absolute', top: '50%', left: '30%', width: '400px', height: '400px',
+            marginTop: '-200px', marginLeft: '-200px',
+            borderRadius: '50%', zIndex: 2, pointerEvents: 'none',
+            background: 'radial-gradient(circle, rgba(0,168,255,0.3) 0%, rgba(0,168,255,0.1) 40%, transparent 70%)',
+          }}
+        />
+
+        {/* Layer 4: "Breaker thrown" — hard flash at the power-on moment */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0, 0, 0.8, 0, 0.4, 0, 0.15, 0] }}
-          transition={{ duration: 3, times: [0, 0.18, 0.19, 0.21, 0.28, 0.32, 0.38, 0.55, 0.7] }}
+          animate={{ opacity: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.6, 0, 0.3, 0] }}
+          transition={{ duration: 4.5, times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.55, 0.6, 0.64, 0.66, 0.68, 0.72, 0.74, 0.8] }}
           style={{
             position: 'absolute', inset: 0, zIndex: 3, pointerEvents: 'none',
-            background: 'radial-gradient(circle at 50% 50%, rgba(0,168,255,0.3) 0%, rgba(245,166,35,0.15) 40%, transparent 70%)',
+            background: 'rgba(200,220,255,0.15)',
           }}
         />
 
-        {/* Amber power sweep — sweeps left to right */}
+        {/* Layer 5: Amber power sweep at the climax */}
         <motion.div
           initial={{ x: '-100%', opacity: 0 }}
-          animate={{ x: '100%', opacity: [0, 0.6, 0.6, 0] }}
-          transition={{ duration: 1.2, delay: 1.5, ease: 'easeInOut' }}
+          animate={{ x: '200%', opacity: [0, 0.5, 0.7, 0.5, 0] }}
+          transition={{ duration: 1.5, delay: 2.8, ease: [0.25, 0.1, 0.25, 1] }}
           style={{
-            position: 'absolute', top: 0, left: 0, width: '50%', height: '100%', zIndex: 4, pointerEvents: 'none',
-            background: 'linear-gradient(90deg, transparent, rgba(245,166,35,0.2), rgba(245,166,35,0.4), rgba(245,166,35,0.2), transparent)',
-            filter: 'blur(40px)',
+            position: 'absolute', top: 0, left: 0, width: '40%', height: '100%', zIndex: 4, pointerEvents: 'none',
+            background: 'linear-gradient(90deg, transparent, rgba(245,166,35,0.15), rgba(245,166,35,0.35), rgba(245,166,35,0.15), transparent)',
+            filter: 'blur(60px)',
           }}
         />
 
-        {/* Horizontal power-line streaks */}
-        {[20, 40, 65, 85].map((top, i) => (
+        {/* Layer 6: Horizontal power-line streaks — fire during the climax */}
+        {[15, 30, 50, 70, 88].map((top, i) => (
           <motion.div key={`streak-${i}`}
             initial={{ scaleX: 0, opacity: 0 }}
-            animate={{ scaleX: [0, 1, 1], opacity: [0, 0.6, 0] }}
-            transition={{ duration: 0.6, delay: 1.8 + i * 0.12, ease: 'easeOut' }}
+            animate={{ scaleX: [0, 1, 1], opacity: [0, 0.7, 0] }}
+            transition={{ duration: 0.8, delay: 2.9 + i * 0.1, ease: 'easeOut' }}
             style={{
               position: 'absolute', top: `${top}%`, left: 0, right: 0, height: '1px', zIndex: 4,
-              background: 'linear-gradient(90deg, transparent 5%, rgba(0,168,255,0.8) 30%, rgba(245,166,35,0.6) 70%, transparent 95%)',
+              background: `linear-gradient(90deg, transparent 5%, rgba(0,168,255,${0.5 + i * 0.1}) 30%, rgba(245,166,35,0.5) 70%, transparent 95%)`,
               transformOrigin: 'left center', pointerEvents: 'none',
             }}
           />
         ))}
 
-        {/* Scrim */}
+        {/* Layer 7: Vertical electrical arcs — crackle during power-on */}
+        {[25, 55, 80].map((left, i) => (
+          <motion.div key={`arc-${i}`}
+            initial={{ scaleY: 0, opacity: 0 }}
+            animate={{ scaleY: [0, 1, 1], opacity: [0, 0.5, 0] }}
+            transition={{ duration: 0.5, delay: 3.0 + i * 0.15, ease: 'easeOut' }}
+            style={{
+              position: 'absolute', left: `${left}%`, top: 0, bottom: 0, width: '1px', zIndex: 4,
+              background: `linear-gradient(180deg, transparent 10%, rgba(0,168,255,0.6) 40%, rgba(245,166,35,0.4) 60%, transparent 90%)`,
+              transformOrigin: 'top center', pointerEvents: 'none',
+            }}
+          />
+        ))}
+
+        {/* Layer 8: Persistent subtle grid glow after power-on */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.04 }}
+          transition={{ duration: 1, delay: 3.5 }}
+          style={{
+            position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
+            backgroundImage: 'linear-gradient(rgba(0,168,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,168,255,0.3) 1px, transparent 1px)',
+            backgroundSize: '80px 80px',
+          }}
+        />
+
+        {/* Scrim for text readability */}
         <div style={{
           position: 'absolute', inset: 0, zIndex: 5,
-          background: 'linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.15) 50%, transparent 85%)',
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 40%, transparent 80%)',
           pointerEvents: 'none',
         }} />
 
-        {/* Content — appears after power-on completes */}
+        {/* Content — appears after power-on completes (~3.5s) */}
         <div className="container" style={{ paddingTop: 'clamp(8rem, 18vh, 12rem)', zIndex: 6, position: 'relative' }}>
 
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 2.2 }}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 3.5 }}>
             <div className="data-label" style={{ marginBottom: '1.5rem', color: '#00a8ff', fontFamily: 'JetBrains Mono', fontSize: '0.7rem', letterSpacing: '0.15em' }}>
               // Heavy Infrastructure · Rapid Response
             </div>
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 2.4 }}
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 3.7 }}
             style={{ fontFamily: 'Inter', fontSize: 'clamp(3rem, 7vw, 5.5rem)', color: '#f0f0fa', lineHeight: 1.0, letterSpacing: '-0.03em', marginBottom: '1.5rem', maxWidth: '800px', fontWeight: 600 }}>
             Forging the Grid.<br/>
-            Restoring the <PowerOnText color="#F5A623" delay={0.8}>Power.</PowerOnText>
+            Restoring the <PowerOnText color="#F5A623" delay={1.5}>Power.</PowerOnText>
           </motion.h1>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2.6 }}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 3.9 }}
             style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
             {['Distribution', 'Underground', 'Storm Restoration', 'Fiber', 'Streetlight'].map((tag) => (
               <span key={tag} style={{
@@ -194,12 +231,12 @@ export default function Home() {
             ))}
           </motion.div>
 
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2.7 }}
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 4.0 }}
             style={{ fontSize: '1.05rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.7)', maxWidth: '520px', marginBottom: '2.5rem' }}>
             We build, maintain, and restore the critical high-voltage networks that keep the Gulf South running. When the skies darken, our crews activate—delivering 24/7 reliability.
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2.9 }}
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 4.2 }}
             style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', width: '100%' }}>
             <Link to="/contact" className="btn" style={{
               background: 'var(--amber)', color: '#000', fontWeight: 700,
@@ -209,15 +246,17 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <motion.div className="desktop-only" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 3.2 }}
+        <motion.div className="desktop-only" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 4.5 }}
           style={{ position: 'absolute', bottom: '3rem', left: '50%', transform: 'translateX(-50%)', zIndex: 6, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
           <motion.div animate={{ y: [0, 12, 0] }} transition={{ repeat: Infinity, duration: 2.5 }}
             style={{ width: '1px', height: '50px', background: 'linear-gradient(to bottom, rgba(245,166,35,0.6), transparent)' }} />
         </motion.div>
 
         <style>{`
-          @keyframes power-hum { 0%, 100% { box-shadow: inset 0 0 100px rgba(0,168,255,0.02); } 50% { box-shadow: inset 0 0 100px rgba(0,168,255,0.06); } }
-          .hero { animation: power-hum 4s ease-in-out infinite; animation-delay: 3s; }
+          @keyframes power-hum { 0%, 100% { box-shadow: inset 0 0 120px rgba(0,168,255,0.02); } 50% { box-shadow: inset 0 0 120px rgba(0,168,255,0.07); } }
+          @keyframes grid-pulse { 0%, 100% { opacity: 0.03; } 50% { opacity: 0.06; } }
+          .hero { animation: power-hum 4s ease-in-out infinite; animation-delay: 4.5s; }
+          .hero-grid-lines { animation: grid-pulse 6s ease-in-out infinite; animation-delay: 4.5s; }
         `}</style>
       </section>
 
