@@ -274,9 +274,9 @@ export default function Home() {
             0%, 100% { opacity: 0; }
             50% { opacity: 1; }
           }
-          .hero { animation: power-hum 5s ease-in-out infinite; animation-delay: 4s; }
-          .hero-persistent-grid { animation: grid-glow 5s ease-in-out infinite; animation-delay: 4s; }
-          .hero-color-shimmer { animation: color-pulse 5s ease-in-out infinite; animation-delay: 4s; }
+          .hero { animation: power-hum 8s ease-in-out infinite; animation-delay: 4s; }
+          .hero-persistent-grid { animation: grid-glow 8s ease-in-out infinite; animation-delay: 4s; }
+          .hero-color-shimmer { animation: color-pulse 8s ease-in-out infinite; animation-delay: 4s; }
         `}</style>
       </section>
 
