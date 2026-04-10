@@ -192,15 +192,31 @@ export default function Home() {
       {/* ═══ LIVE OPERATIONS MAP ═══ */}
       <section className="section ops-section" style={{ background: '#000', borderBottom: '1px solid var(--ghost-border)' }}>
         <div className="container" style={{ maxWidth: '1200px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '3rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '2.5rem' }}>
             <div className="section-label" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <ShieldAlert size={14} color="var(--amber)" /> Live Grid Operations
+              <ShieldAlert size={14} color="var(--amber)" /> Live Operations Center
             </div>
-            <h2 className="section-title" style={{ marginBottom: '1rem' }}>Storm Response &<br/>Fleet Tracking</h2>
+            <h2 className="section-title" style={{ marginBottom: '1rem' }}>Real-Time Weather &<br/>Staging Map</h2>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', maxWidth: '600px', margin: '0 0 1rem' }}>
+              This map shows <span style={{ color: '#f0f0fa', fontWeight: 600 }}>live NEXRAD radar</span>, <span style={{ color: '#ff9100', fontWeight: 600 }}>active NWS severe weather alerts</span>, and our <span style={{ color: '#00a8ff', fontWeight: 600 }}>pre-positioned staging bases</span> across the Gulf South. Data refreshes automatically every 5 minutes.
+            </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-              <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', maxWidth: '600px', margin: 0 }}>
-                Our crews are positioned strategically across the Gulf South, ready to respond to severe weather events and maintain critical infrastructure.
-              </p>
+              {/* Quick visual legend */}
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                {[
+                  { color: '#00a8ff', label: 'Staging Base' },
+                  { color: '#F5A623', label: 'HQ' },
+                  { color: '#ff9100', label: 'NWS Alert Zone' },
+                  { color: 'rgba(0,200,255,0.4)', label: 'Live Radar' },
+                ].map(item => (
+                  <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                    <div style={{ width: '8px', height: '8px', borderRadius: item.label === 'NWS Alert Zone' ? '2px' : '50%', background: item.color, boxShadow: `0 0 6px ${item.color}` }} />
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.5rem', fontWeight: 600, letterSpacing: '0.06em', color: 'rgba(240,240,250,0.35)' }}>
+                      {item.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
               <GridSonification />
             </div>
           </div>
