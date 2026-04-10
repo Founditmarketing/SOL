@@ -39,8 +39,8 @@ export default function Navbar() {
             <img src="/sol-logo.svg" alt="SolPowerlines" style={{ height: '36px', objectFit: 'contain' }} />
           </Link>
 
-          <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-            <div style={{ display: 'flex', gap: '1.5rem' }}>
+          <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
+            <div style={{ display: 'flex', gap: '2rem' }}>
               {navItems.map((item) => {
                 const path = item === 'Home' ? '/' : `/${item.toLowerCase().replace(/ /g, '-')}`;
                 const isActive = location.pathname === path;
@@ -54,10 +54,17 @@ export default function Navbar() {
                 );
               })}
             </div>
-            <PowerToggle />
-            <a href="tel:3187760557" className="btn btn-blue nav-phone" style={{ padding: '0.6rem 1.2rem', fontSize: '0.75rem' }}>
-              <Phone size={13} style={{ marginRight: '6px' }} /> 318.776.0557
-            </a>
+            <div style={{ width: '1px', height: '20px', background: 'rgba(240,240,250,0.1)' }} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <PowerToggle />
+              <a href="tel:3187760557" className="btn" style={{
+                padding: '0.5rem 1.2rem', fontSize: '0.7rem', borderRadius: '100px',
+                background: 'rgba(245,166,35,0.1)', border: '1px solid rgba(245,166,35,0.3)',
+                color: 'var(--amber)', fontFamily: "'JetBrains Mono', monospace", fontWeight: 600,
+              }}>
+                <Phone size={12} style={{ marginRight: '6px' }} /> 318.776.0557
+              </a>
+            </div>
           </nav>
 
           <div className="mobile-toggle" style={{ display: 'none', alignItems: 'center' }}>

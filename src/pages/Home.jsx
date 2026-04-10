@@ -5,6 +5,7 @@ import { Shield, Zap, Wrench, ArrowRight, Cable, Lightbulb } from 'lucide-react'
 import Marquee from '../components/Marquee';
 import OpsMap from '../components/OpsMap';
 import GridSonification from '../components/GridSonification';
+import ScrollytellingCaseStudy from '../components/ScrollytellingCaseStudy';
 import { ChevronRight, ShieldAlert } from 'lucide-react';
 
 // ═══ NOVEL EFFECTS ═══
@@ -91,9 +92,9 @@ export default function Home() {
     <div>
       {/* ═══ HERO — Full viewport cinematic ═══ */}
       <section className="hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#000' }}>
-        <video className="desktop-video" src="/hero-desktop-v2.mp4" autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }} />
-        <video className="mobile-video" src="/hero-mobile-v2.mp4" autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.55 }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 60%, #000000 100%)', zIndex: 1 }} />
+        <video className="desktop-video" src="/2614b9d7-2845-4c7b-8590-1f19a7226eec.mp4" autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }} />
+        <video className="mobile-video" src="/2614b9d7-2845-4c7b-8590-1f19a7226eec.mp4" autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.55 }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.45) 60%, #000000 100%)', zIndex: 1 }} />
         
         {/* Circuit-grid schematic overlay */}
         <div style={{
@@ -106,6 +107,13 @@ export default function Home() {
         }} />
 
         <div className="container" style={{ paddingTop: 'clamp(8rem, 18vh, 12rem)', zIndex: 3, position: 'relative' }}>
+          {/* Text scrim — darkens BG only behind text area */}
+          <div style={{
+            position: 'absolute', top: 0, left: '-4rem', bottom: 0, width: 'min(700px, 90vw)',
+            background: 'radial-gradient(ellipse at left center, rgba(0,0,0,0.6) 0%, transparent 75%)',
+            pointerEvents: 'none', zIndex: -1,
+          }} />
+
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
             <div className="data-label" style={{ marginBottom: '1.5rem', color: '#00a8ff', fontFamily: 'JetBrains Mono', fontSize: '0.7rem', letterSpacing: '0.15em' }}>
               // Heavy Infrastructure · Rapid Response
@@ -113,22 +121,37 @@ export default function Home() {
           </motion.div>
 
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }}
-            style={{ fontFamily: 'Inter', fontSize: 'clamp(3rem, 7vw, 5.5rem)', color: '#f0f0fa', lineHeight: 1.0, letterSpacing: '-0.03em', marginBottom: '2rem', maxWidth: '800px', fontWeight: 600 }}>
-            Forging the <PowerOnText color="#00a8ff" delay={1.3}>Grid.</PowerOnText><br/>
+            style={{ fontFamily: 'Inter', fontSize: 'clamp(3rem, 7vw, 5.5rem)', color: '#f0f0fa', lineHeight: 1.0, letterSpacing: '-0.03em', marginBottom: '1.5rem', maxWidth: '800px', fontWeight: 600 }}>
+            Forging the Grid.<br/>
             Restoring the <PowerOnText color="#F5A623" delay={1.8}>Power.</PowerOnText>
-            <span className="hero-subtitle" style={{ display: 'block', fontSize: 'clamp(0.85rem, 1.5vw, 1.1rem)', fontWeight: 400, color: 'rgba(240,240,250,0.65)', letterSpacing: '0.15em', textTransform: 'uppercase', marginTop: '1.5rem', fontFamily: 'Barlow Condensed' }}>
-              Distribution · Underground · Storm Restoration · Fiber · Streetlight
-            </span>
           </motion.h1>
 
+          {/* Service micro-badges */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.65 }}
+            style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+            {['Distribution', 'Underground', 'Storm Restoration', 'Fiber', 'Streetlight'].map((tag) => (
+              <span key={tag} style={{
+                fontFamily: "'JetBrains Mono', monospace", fontSize: '0.6rem', fontWeight: 500,
+                letterSpacing: '0.08em', textTransform: 'uppercase',
+                padding: '0.35rem 0.75rem',
+                border: '1px solid rgba(240,240,250,0.12)',
+                color: 'rgba(240,240,250,0.5)',
+                background: 'rgba(240,240,250,0.03)',
+              }}>{tag}</span>
+            ))}
+          </motion.div>
+
           <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }}
-            style={{ fontSize: '1.05rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.7)', maxWidth: '520px', marginBottom: '3rem' }}>
+            style={{ fontSize: '1.05rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.7)', maxWidth: '520px', marginBottom: '2.5rem' }}>
             We build, maintain, and restore the critical high-voltage networks that keep the Gulf South running. When the skies darken, our crews activate—delivering 24/7 reliability.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.9 }}
             style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', width: '100%' }}>
-            <Link to="/contact" className="btn btn-blue">Request a Consultation</Link>
+            <Link to="/contact" className="btn" style={{
+              background: 'var(--amber)', color: '#000', fontWeight: 700,
+              border: '1px solid var(--amber)',
+            }}>Request a Consultation</Link>
             <Link to="/careers" className="btn btn-outline">Join Our Crew <ArrowRight size={16} style={{ marginLeft: '8px' }} /></Link>
           </motion.div>
         </div>
@@ -200,6 +223,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* ═══ SCROLLYTELLING CASE STUDY ═══ */}
+      <ScrollytellingCaseStudy />
 
       {/* ═══ SERVICES GRID ═══ */}
       <section className="section services-section" style={{ background: '#000' }}>

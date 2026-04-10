@@ -282,39 +282,34 @@ button {
   .section { padding: 4rem 1.5rem !important; }
   .section-title { font-size: clamp(1.6rem, 5vw, 2.5rem) !important; }
 
+  /* ═══ iOS-NATIVE VERTICAL STACKING (NO HORIZONTAL SCROLL) ═══ */
   .mobile-carousel {
     display: flex !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
-    gap: 1.5rem !important;
-    padding-bottom: 2rem !important;
+    flex-direction: column !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    gap: 0.75rem !important;
+    padding-bottom: 0 !important;
     grid-template-columns: none !important;
-    margin-left: -2rem; margin-right: -2rem;
-    padding-left: 2rem !important; padding-right: 2rem !important;
-    position: relative;
+    margin-left: 0; margin-right: 0;
+    padding-left: 0 !important; padding-right: 0 !important;
   }
-  .mobile-carousel > div { min-width: 85vw !important; scroll-snap-align: center; }
+  .mobile-carousel > div {
+    min-width: 100% !important;
+    scroll-snap-align: none;
+    border-radius: 14px !important;
+    padding: 1.25rem 1.5rem !important;
+    background: rgba(240,240,250,0.04) !important;
+    border: 1px solid rgba(240,240,250,0.08) !important;
+  }
 
+  /* Kill the carousel fade edge on mobile */
   .carousel-wrapper { position: relative; }
-  .carousel-wrapper::after {
-    content: '';
-    position: absolute; top: 0; right: 0;
-    width: 60px; height: calc(100% - 2rem);
-    background: linear-gradient(90deg, transparent, #000000);
-    pointer-events: none; z-index: 5;
-  }
+  .carousel-wrapper::after { display: none !important; }
 
-  .swipe-hint {
-    display: flex !important;
-    align-items: center; justify-content: center;
-    gap: 0.4rem; padding: 0.4rem 0;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem; font-weight: 600;
-    letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--text); opacity: 0.5;
-  }
-  .swipe-hint svg { animation: swipe-bounce 1.5s ease-in-out infinite; }
-  @keyframes swipe-bounce { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+  /* Kill the swipe hint */
+  .swipe-hint { display: none !important; }
+
 
   /* ═══ MOBILE BRIGHTNESS FIX ═══ */
   /* Ghost buttons → solid on mobile for tap targets */
@@ -738,6 +733,58 @@ button {
   .btn {
     padding: 0.85rem 1.5rem;
     font-size: 0.8rem;
+  }
+
+  /* ═══ iOS-NATIVE CARD STYLING ═══ */
+  /* All multi-column grids → single column */
+  .service-card,
+  .utility-card {
+    border-radius: 14px !important;
+    padding: 1.25rem 1.5rem !important;
+  }
+
+  /* Stats bar → vertical stack */
+  .stats-section .mobile-carousel {
+    gap: 0rem !important;
+  }
+  .stats-section .mobile-carousel > div {
+    text-align: left !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 1rem 1.25rem !important;
+  }
+
+  /* Leadership cards → vertical stack with rounded corners */
+  .leadership-section .container > div:last-child {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .leadership-section .container > div:last-child > div {
+    border-radius: 14px !important;
+    background: rgba(240,240,250,0.03) !important;
+    border: 1px solid rgba(240,240,250,0.08) !important;
+    padding: 1.25rem 1.5rem !important;
+    border-top: 1px solid rgba(240,240,250,0.08) !important;
+  }
+
+  /* Who We Serve → vertical cards */
+  .utilities-section .container > div:last-child {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+    background: transparent !important;
+  }
+  .utilities-section .container > div:last-child > div {
+    border-radius: 14px !important;
+    background: rgba(240,240,250,0.03) !important;
+    border: 1px solid rgba(240,240,250,0.08) !important;
+    padding: 1.25rem 1.5rem !important;
+  }
+
+  /* Scrollytelling timeline → tighter on mobile */
+  .container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
   }
 }
 
