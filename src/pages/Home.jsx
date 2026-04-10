@@ -197,6 +197,11 @@ export default function Home() {
           }}
         />
 
+        {/* Ongoing: Amber/blue color shimmer that pulses with the grid */}
+        <div className="hero-color-shimmer" style={{
+          position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
+          background: 'radial-gradient(ellipse at 30% 50%, rgba(0,168,255,0.08) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, rgba(245,166,35,0.06) 0%, transparent 45%)',
+        }} />
 
 
         {/* Scrim for text readability */}
@@ -259,14 +264,19 @@ export default function Home() {
         <style>{`
           @keyframes power-hum {
             0%, 100% { box-shadow: inset 0 0 120px rgba(0,168,255,0.02); }
-            50% { box-shadow: inset 0 0 120px rgba(0,168,255,0.06); }
+            50% { box-shadow: inset 0 0 120px rgba(0,168,255,0.08); }
           }
           @keyframes grid-glow {
-            0%, 100% { opacity: 0.8; filter: brightness(0.8); }
-            50% { opacity: 1.6; filter: brightness(1.8); }
+            0%, 100% { opacity: 0.05; filter: brightness(0.3); }
+            50% { opacity: 1.8; filter: brightness(2); }
+          }
+          @keyframes color-pulse {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
           }
           .hero { animation: power-hum 5s ease-in-out infinite; animation-delay: 4s; }
-          .hero-persistent-grid { animation: grid-glow 3s ease-in-out infinite; animation-delay: 4s; }
+          .hero-persistent-grid { animation: grid-glow 5s ease-in-out infinite; animation-delay: 4s; }
+          .hero-color-shimmer { animation: color-pulse 5s ease-in-out infinite; animation-delay: 4s; }
         `}</style>
       </section>
 
