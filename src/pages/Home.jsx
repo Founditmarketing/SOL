@@ -104,27 +104,11 @@ export default function Home() {
           }}
         />
 
-        {/* Layer 2: Grid lines — each flicker BUILDS, never returns to zero */}
+        {/* Layer 2: Grid lines — flicker on, then STAY on */}
         <motion.div className="hero-grid-lines"
           initial={{ opacity: 0 }}
-          animate={{ opacity: [
-            0, 0, 0,              // 0–0.6s: total darkness
-            0.4, 0.03,            // 0.7s: first flicker — leaves a trace
-            0.03, 0.03,           // 0.9s: dim residual glow — power's in the lines now
-            0.35, 0.06,           // 1.2s: second surge — floor rises
-            0.5, 0.10, 0.45, 0.12, // 1.6s: rapid double — each dip stays higher
-            0.6, 0.15, 0.7, 0.18, // 2.0s: building fast — almost stable
-            0.85, 0.5, 0.15       // 2.8s: FULL SURGE, then settle to idle
-          ] }}
-          transition={{ duration: 4, times: [
-            0, 0.05, 0.15,
-            0.18, 0.22,
-            0.25, 0.28,
-            0.32, 0.36,
-            0.40, 0.43, 0.46, 0.49,
-            0.52, 0.56, 0.60, 0.64,
-            0.72, 0.82, 1
-          ] }}
+          animate={{ opacity: [0, 0, 0, 0.4, 0, 0, 0, 0.3, 0, 0.5, 0.15] }}
+          transition={{ duration: 4, times: [0, 0.1, 0.15, 0.18, 0.22, 0.3, 0.4, 0.44, 0.5, 0.7, 1] }}
           style={{
             position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
             backgroundImage: 'linear-gradient(rgba(0,168,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,168,255,0.5) 1px, transparent 1px)',
@@ -148,23 +132,11 @@ export default function Home() {
           }}
         />
 
-        {/* Layer 4: Breaker attempts — multiple flashes building in intensity */}
+        {/* Layer 4: "Breaker thrown" — single hard flash */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: [
-            0, 0, 0,
-            0.08, 0.02,           // first attempt — faint
-            0.02, 0.15, 0.03,     // second attempt — building
-            0.25, 0.05, 0.35, 0.08, // rapid attempts — escalating
-            0.9, 0.5, 0.1, 0.05, 0 // BREAKER THROWN — full bright, settle
-          ] }}
-          transition={{ duration: 4, times: [
-            0, 0.15, 0.17,
-            0.19, 0.22,
-            0.30, 0.33, 0.36,
-            0.40, 0.43, 0.46, 0.49,
-            0.60, 0.62, 0.66, 0.68, 0.72
-          ] }}
+          animate={{ opacity: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0.8, 0.4, 0, 0.2, 0] }}
+          transition={{ duration: 4, times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.55, 0.6, 0.64, 0.66, 0.68, 0.72, 0.74, 0.8] }}
           style={{
             position: 'absolute', inset: 0, zIndex: 3, pointerEvents: 'none',
             background: 'rgba(200,220,255,0.12)',
