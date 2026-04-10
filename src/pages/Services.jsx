@@ -34,13 +34,32 @@ export default function Services() {
                 style={{ background: '#000', padding: '3rem 2.5rem', transition: 'background 0.3s' }}>
                 <div style={{ marginBottom: '1.5rem', opacity: 0.8 }}>{srv.icon}</div>
                 <h3 style={{ fontFamily: 'Inter', fontSize: '1.2rem', color: '#f0f0fa', marginBottom: '1rem', fontWeight: 600 }}>{srv.title}</h3>
-                <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', marginBottom: '2rem' }}>{srv.desc}</p>
-                <Link to="/contact" style={{ fontFamily: 'Barlow Condensed', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--amber)', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-                  Request Quote <ArrowRight size={14} />
-                </Link>
+                <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)' }}>{srv.desc}</p>
               </motion.div>
             ))}
           </div>
+
+          {/* Single contact CTA */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }}
+            style={{ textAlign: 'center', marginTop: '4rem' }}
+          >
+            <p style={{ fontFamily: 'Inter', fontSize: '1.1rem', color: 'rgba(240,240,250,0.6)', marginBottom: '1.5rem', maxWidth: '500px', margin: '0 auto 1.5rem' }}>
+              Ready to discuss your next project?
+            </p>
+            <Link to="/contact" style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+              fontFamily: 'Barlow Condensed', fontSize: '0.85rem', fontWeight: 700,
+              letterSpacing: '0.15em', textTransform: 'uppercase',
+              color: '#000', background: 'var(--amber)',
+              padding: '1rem 2.5rem', borderRadius: '4px',
+              textDecoration: 'none',
+            }}>
+              Contact Us <ArrowRight size={16} />
+            </Link>
+          </motion.div>
         </div>
       </section>
     </div>

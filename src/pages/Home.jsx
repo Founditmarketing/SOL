@@ -105,14 +105,14 @@ export default function Home() {
           `,
           backgroundSize: '80px 80px',
         }} />
+        {/* Text scrim — full-width contrast behind hero text */}
+        <div style={{
+          position: 'absolute', inset: 0, zIndex: 2,
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.15) 50%, transparent 85%)',
+          pointerEvents: 'none',
+        }} />
 
         <div className="container" style={{ paddingTop: 'clamp(8rem, 18vh, 12rem)', zIndex: 3, position: 'relative' }}>
-          {/* Text scrim — darkens BG behind text area */}
-          <div style={{
-            position: 'absolute', top: 0, left: '-2rem', bottom: 0, right: '-2rem',
-            background: 'linear-gradient(90deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)',
-            pointerEvents: 'none', zIndex: -1,
-          }} />
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
             <div className="data-label" style={{ marginBottom: '1.5rem', color: '#00a8ff', fontFamily: 'JetBrains Mono', fontSize: '0.7rem', letterSpacing: '0.15em' }}>
