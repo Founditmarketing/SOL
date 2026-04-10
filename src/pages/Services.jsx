@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Zap, Shield, Wrench, ArrowRight, Cable, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PageHeroGrid from '../components/PageHeroGrid';
 
 export default function Services() {
   const services = [
@@ -13,9 +14,10 @@ export default function Services() {
 
   return (
     <div style={{ paddingTop: '8rem' }}>
-      <section style={{ position: 'relative', minHeight: '40vh', display: 'flex', alignItems: 'center', background: '#000' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, #000 100%)', zIndex: 1 }} />
-        <div className="container" style={{ zIndex: 2, padding: '4rem 2rem' }}>
+      <section style={{ position: 'relative', minHeight: '40vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#000' }}>
+        <PageHeroGrid />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, #000 100%)', zIndex: 3 }} />
+        <div className="container" style={{ zIndex: 6, padding: '4rem 2rem' }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="section-label">What We Do</div>
             <h1 className="section-title" style={{ maxWidth: '500px' }}>Full-Spectrum<br/>Utility Services</h1>

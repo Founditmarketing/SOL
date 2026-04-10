@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle2, Phone, MapPin, Mail, Activity } from 'lucide-react';
 import { useGrid } from '../context/GridContext';
+import PageHeroGrid from '../components/PageHeroGrid';
 
 function GridStatusBadge() {
   const { stressLevel, alerts } = useGrid();
@@ -80,8 +81,9 @@ export default function Contact() {
 
   return (
     <div style={{ paddingTop: '8rem' }}>
-      <section className="page-section" style={{ background: '#000', padding: '4rem 2rem 0' }}>
-        <div className="container">
+      <section className="page-section" style={{ position: 'relative', background: '#000', padding: '4rem 2rem 0', overflow: 'hidden' }}>
+        <PageHeroGrid />
+        <div className="container" style={{ position: 'relative', zIndex: 6 }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="section-label">Get in Touch</div>
             <h1 className="section-title" style={{ maxWidth: '500px' }}>Ready to Talk<br/>About Your Project?</h1>

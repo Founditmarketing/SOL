@@ -2,15 +2,17 @@ import { motion } from 'framer-motion';
 import { ShieldAlert, Eye, AlertTriangle, UserCheck, Award } from 'lucide-react';
 import IncidentCounter from '../components/IncidentCounter';
 import SafetyGauges from '../components/SafetyGauges';
+import PageHeroGrid from '../components/PageHeroGrid';
 
 export default function Safety() {
   return (
     <div style={{ paddingTop: '8rem' }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="page-hero" style={{ position: 'relative', minHeight: '45vh', display: 'flex', alignItems: 'center', background: '#000' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.5), #000)', zIndex: 1 }} />
-        <div className="container" style={{ zIndex: 2, padding: '4rem 2rem' }}>
+      <section className="page-hero" style={{ position: 'relative', minHeight: '45vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#000' }}>
+        <PageHeroGrid />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.5), #000)', zIndex: 3 }} />
+        <div className="container" style={{ zIndex: 6, padding: '4rem 2rem' }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="section-label">Safety Program</div>
             <h1 className="section-title" style={{ maxWidth: '600px' }}>Safety First,<br/>People Minded</h1>

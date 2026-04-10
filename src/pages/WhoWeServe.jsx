@@ -2,12 +2,14 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Marquee from '../components/Marquee';
+import PageHeroGrid from '../components/PageHeroGrid';
 
 export default function WhoWeServe() {
   return (
     <div style={{ paddingTop: '8rem' }}>
-      <section className="page-section" style={{ background: '#000', padding: '4rem 2rem 0' }}>
-        <div className="container">
+      <section className="page-section" style={{ position: 'relative', background: '#000', padding: '4rem 2rem 0', overflow: 'hidden' }}>
+        <PageHeroGrid />
+        <div className="container" style={{ position: 'relative', zIndex: 6 }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="section-label">Who We Serve</div>
             <h1 className="section-title" style={{ maxWidth: '600px' }}>Trusted by Utilities<br/>Across the Region</h1>

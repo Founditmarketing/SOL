@@ -1,15 +1,17 @@
 import { motion } from 'framer-motion';
 import { Users, Zap, ShieldCheck, Heart } from 'lucide-react';
 import CrucibleGame from '../components/CrucibleGame';
+import PageHeroGrid from '../components/PageHeroGrid';
 
 export default function About() {
   return (
     <div style={{ paddingTop: '8rem' }}>
       {/* Hero */}
       <section className="page-hero" style={{ position: 'relative', minHeight: '50vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#000' }}>
-        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1400&q=80" alt="Power Lines" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.4) 0%, #000 100%)', zIndex: 1 }} />
-        <div className="container" style={{ zIndex: 2, padding: '4rem 2rem' }}>
+        <PageHeroGrid />
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1400&q=80" alt="Power Lines" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.15 }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.4) 0%, #000 100%)', zIndex: 3 }} />
+        <div className="container" style={{ zIndex: 6, padding: '4rem 2rem' }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="section-label">Who We Are</div>
             <h1 className="section-title" style={{ maxWidth: '600px' }}>Dedicated to Excellence<br/>and Integrity</h1>
