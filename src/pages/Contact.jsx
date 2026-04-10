@@ -1,6 +1,78 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CheckCircle2, Phone, MapPin, Mail } from 'lucide-react';
+import { Send, CheckCircle2, Phone, MapPin, Mail, Activity } from 'lucide-react';
+import { useGrid } from '../context/GridContext';
+
+function GridStatusBadge() {
+  const { stressLevel, alerts } = useGrid();
+  
+  const getStatus = () => {
+    if (stressLevel <= 3) return { label: 'NOMINAL', color: '#00e676', message: 'All systems operational. Average response time: 2 hours.' };
+    if (stressLevel <= 6) return { label: 'ELEVATED', color: '#F5A623', message: 'Crews actively deployed. Response times may be extended.' };
+    return { label: 'CRITICAL', color: '#e61e25', message: '⚠️ Crews responding to severe weather. For emergencies, call 318.776.0557.' };
+  };
+  
+  const status = getStatus();
+  const activeAlertCount = alerts.filter(a => ['Severe', 'Extreme'].includes(a.severity)).length;
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }} 
+      animate={{ opacity: 1, y: 0 }}
+      style={{
+        background: 'rgba(10,12,16,0.9)',
+        border: `1px solid ${status.color}30`,
+        borderRadius: '12px',
+        padding: '1.5rem',
+        marginTop: '2rem',
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '0.75rem' }}>
+        <Activity size={16} color={status.color} />
+        <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.15em', color: status.color, textTransform: 'uppercase' }}>
+          Grid Status: {status.label}
+        </div>
+        <div style={{
+          width: '8px', height: '8px', borderRadius: '50%',
+          background: status.color,
+          boxShadow: `0 0 8px ${status.color}`,
+          animation: 'ops-pulse 2s infinite',
+          marginLeft: 'auto',
+        }} />
+      </div>
+      
+      {/* Stress meter */}
+      <div style={{ display: 'flex', gap: '3px', marginBottom: '0.75rem' }}>
+        {Array.from({ length: 10 }, (_, i) => (
+          <div key={i} style={{
+            flex: 1, height: '4px', borderRadius: '2px',
+            background: i < stressLevel 
+              ? (i < 3 ? '#00e676' : i < 6 ? '#F5A623' : '#e61e25')
+              : 'rgba(255,255,255,0.06)',
+            transition: 'background 0.3s',
+          }} />
+        ))}
+      </div>
+
+      <p style={{ fontFamily: 'Inter', fontSize: '0.8rem', color: 'rgba(240,240,250,0.55)', lineHeight: 1.5, margin: 0 }}>
+        {status.message}
+      </p>
+      
+      {activeAlertCount > 0 && (
+        <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.65rem', color: '#e61e25', letterSpacing: '0.1em', marginTop: '0.5rem', fontWeight: 600 }}>
+          {activeAlertCount} ACTIVE SEVERE WEATHER ALERT{activeAlertCount > 1 ? 'S' : ''} IN GULF SOUTH
+        </div>
+      )}
+
+      <style>{`
+        @keyframes ops-pulse {
+          0%, 100% { transform: scale(1); opacity: 0.4; }
+          50% { transform: scale(2.2); opacity: 0; }
+        }
+      `}</style>
+    </motion.div>
+  );
+}
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -41,6 +113,9 @@ export default function Contact() {
                   </div>
                 ))}
               </div>
+              
+              {/* Live Grid Status Badge */}
+              <GridStatusBadge />
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
@@ -74,3 +149,4 @@ export default function Contact() {
     </div>
   );
 }
+

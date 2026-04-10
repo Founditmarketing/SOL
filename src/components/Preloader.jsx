@@ -2,8 +2,20 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Preloader() {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => { const t = setTimeout(() => setLoading(false), 1800); return () => clearTimeout(t); }, []);
+  const [loading, setLoading] = useState(() => {
+    // Only show preloader on first visit this session
+    if (sessionStorage.getItem('sol-loaded')) return false;
+    return true;
+  });
+
+  useEffect(() => {
+    if (!loading) return;
+    const t = setTimeout(() => {
+      setLoading(false);
+      sessionStorage.setItem('sol-loaded', '1');
+    }, 1800);
+    return () => clearTimeout(t);
+  }, [loading]);
 
   return (
     <AnimatePresence>
@@ -25,3 +37,4 @@ export default function Preloader() {
     </AnimatePresence>
   );
 }
+

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Shield, TrendingUp, Heart, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import LinemanTimeline from '../components/LinemanTimeline';
 
 export default function Careers() {
   return (
@@ -39,19 +40,7 @@ export default function Careers() {
             ))}
           </div>
 
-          <div style={{ borderTop: '1px solid rgba(240,240,250,0.06)', paddingTop: '2rem' }}>
-            <h3 className="page-accent-title" style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '1rem' }}>Applicant Requirements</h3>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '3rem' }}>
-              {['Valid CDL license Class A', 'Mandatory drug testing', 'Proof of Qualification — includes "Test-Outs" and "Hands-on Evaluations" specific to job task requirements'].map((req, idx) => (
-                <li key={idx} className="page-body" style={{ fontSize: '0.9rem', color: 'rgba(240,240,250,0.6)', display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-                  <span style={{ color: 'var(--amber)', marginTop: '0.2rem' }}>—</span>
-                  <span>{req}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '0' }}>
             <a href="https://powergrid.rec.pro.ukg.net/POW1011GRID/JobBoard/b61b95ff-758c-43a5-88a2-4fbcfd6c3e40/?q=&o=postedDateDesc" target="_blank" rel="noopener noreferrer" className="btn btn-red" style={{ flex: 1, justifyContent: 'center' }}>
               See All Job Openings <ExternalLink size={14} style={{ marginLeft: '8px' }} />
             </a>
@@ -61,6 +50,36 @@ export default function Careers() {
           </div>
         </div>
       </section>
+
+      {/* ═══ DAY IN THE LIFE TIMELINE ═══ */}
+      <section className="section page-section" style={{ background: '#0a0a0a', borderTop: '1px solid rgba(240,240,250,0.06)' }}>
+        <div className="container" style={{ maxWidth: '700px' }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <div className="section-label">A Day in the Life</div>
+            <h2 className="section-title" style={{ marginBottom: '0.75rem' }}>24 Hours as<br/>a Lineman</h2>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.5)', maxWidth: '500px', marginBottom: '3rem' }}>
+              This isn't a desk job. From pre-dawn briefings to midnight storm response, here's what it really takes.
+            </p>
+          </motion.div>
+          <LinemanTimeline />
+        </div>
+      </section>
+
+      {/* ═══ REQUIREMENTS ═══ */}
+      <section className="section page-section" style={{ background: '#000', borderTop: '1px solid rgba(240,240,250,0.06)' }}>
+        <div className="container" style={{ maxWidth: '800px' }}>
+          <h3 className="page-accent-title" style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '1rem' }}>Applicant Requirements</h3>
+          <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '3rem' }}>
+            {['Valid CDL license Class A', 'Mandatory drug testing', 'Proof of Qualification — includes "Test-Outs" and "Hands-on Evaluations" specific to job task requirements'].map((req, idx) => (
+              <li key={idx} className="page-body" style={{ fontSize: '0.9rem', color: 'rgba(240,240,250,0.6)', display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <span style={{ color: 'var(--amber)', marginTop: '0.2rem' }}>—</span>
+                <span>{req}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </div>
   );
 }
+

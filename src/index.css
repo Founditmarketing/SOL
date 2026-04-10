@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
   /* SpaceX-Adapted Industrial Palette */
@@ -65,6 +65,17 @@ button {
 /* Typography */
 .font-inter { font-family: 'Inter', sans-serif; }
 .font-barlow-cond { font-family: 'Barlow Condensed', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+/* Data labels — brutalist technical aesthetic */
+.data-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(240,240,250,0.4);
+}
 
 /* Animations */
 @keyframes fadeInUp {
@@ -76,7 +87,7 @@ button {
 
 /* Sections */
 .section {
-  padding: 7rem 2rem;
+  padding: 5rem 2rem;
   position: relative;
 }
 
@@ -87,7 +98,7 @@ button {
   z-index: 1;
 }
 
-/* Buttons — Ghost style (SpaceX) */
+/* Buttons — Ghost style (SpaceX) with electric border draw */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -106,13 +117,50 @@ button {
   border: none;
 }
 
+/* Electric border draw effect */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+.btn:hover::before {
+  border-color: var(--amber);
+  animation: electric-border 0.6s ease forwards;
+}
+@keyframes electric-border {
+  0% { clip-path: inset(0 100% 100% 0); }
+  25% { clip-path: inset(0 0 100% 0); }
+  50% { clip-path: inset(0 0 0 0); }
+  75% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+/* Subtle electric spark on hover */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  width: 120%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--amber), transparent);
+  transform: translateY(-50%) scaleX(0);
+  transition: transform 0.4s ease;
+  opacity: 0.4;
+}
+.btn:hover::after {
+  transform: translateY(-50%) scaleX(1);
+}
+
 .btn-blue {
-  background: var(--ghost);
+  background: rgba(245, 166, 35, 0.12);
   color: var(--spectral);
-  border: 1px solid var(--ghost-border);
+  border: 1px solid var(--amber);
 }
 .btn-blue:hover {
-  background: rgba(245, 166, 35, 0.15);
+  background: rgba(245, 166, 35, 0.25);
   border-color: var(--amber);
   color: var(--amber);
 }
@@ -667,3 +715,29 @@ button {
 [data-mode="light"] * {
   transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
+
+/* ═══ MOBILE RESPONSIVE FIXES ═══ */
+@media (max-width: 600px) {
+  .section {
+    padding: 3.5rem 1.25rem;
+  }
+  .hero h1,
+  .hero .section-title {
+    font-size: clamp(2rem, 10vw, 3rem) !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100% !important;
+  }
+  .hero-subtitle {
+    font-size: 0.7rem !important;
+  }
+  .hero .container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+  .btn {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.8rem;
+  }
+}
+

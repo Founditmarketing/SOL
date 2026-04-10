@@ -1,9 +1,62 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Shield, Zap, Wrench, ArrowRight, Cable, Lightbulb } from 'lucide-react';
 import Marquee from '../components/Marquee';
-import { ChevronRight } from 'lucide-react';
+import OpsMap from '../components/OpsMap';
+import GridSonification from '../components/GridSonification';
+import { ChevronRight, ShieldAlert } from 'lucide-react';
+
+// ═══ NOVEL EFFECTS ═══
+function PowerOnText({ children, color = '#00a8ff', delay = 0 }) {
+  const ref = useRef(null);
+  const [powered, setPowered] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setPowered(true), (delay + 1.2) * 1000);
+    return () => clearTimeout(t);
+  }, [delay]);
+
+  return (
+    <span 
+      ref={ref}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{ position: 'relative', display: 'inline-block', cursor: 'default' }}
+    >
+      <motion.span
+        initial={{ color: 'rgba(240,240,250,0.15)', textShadow: 'none' }}
+        animate={powered ? {
+          color: color,
+          textShadow: hovered 
+            ? `0 0 30px ${color}, 0 0 60px ${color}, 0 0 90px ${color}, 0 0 120px ${color}`
+            : `0 0 15px ${color}, 0 0 30px ${color}, 0 0 45px ${color}`,
+          filter: hovered ? 'brightness(1.4)' : 'brightness(1)',
+        } : {
+          color: [
+            'rgba(240,240,250,0.15)', '#fff', 'rgba(240,240,250,0.15)', '#fff', color, color
+          ],
+          textShadow: [
+            'none',
+            `0 0 30px ${color}, 0 0 60px ${color}`,
+            'none',
+            `0 0 60px ${color}, 0 0 120px ${color}, 0 0 180px ${color}`,
+            `0 0 15px ${color}, 0 0 30px ${color}, 0 0 45px ${color}`,
+            `0 0 15px ${color}, 0 0 30px ${color}, 0 0 45px ${color}`
+          ]
+        }}
+        transition={powered 
+          ? { duration: 0.4, ease: 'easeOut' }
+          : { duration: 1.2, times: [0, 0.05, 0.1, 0.15, 0.4, 1], delay: delay, ease: 'easeOut' }
+        }
+        style={{ display: 'inline-block', position: 'relative', zIndex: 2 }}
+      >
+        {children}
+      </motion.span>
+    </span>
+  );
+}
 
 function SwipeHint() {
   return (
@@ -40,24 +93,37 @@ export default function Home() {
       <section className="hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#000' }}>
         <video className="desktop-video" src="/hero-desktop-v2.mp4" autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }} />
         <video className="mobile-video" src="/hero-mobile-v2.mp4" autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.55 }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 60%, #000000 100%)', zIndex: 1 }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 60%, #000000 100%)', zIndex: 1 }} />
+        
+        {/* Circuit-grid schematic overlay */}
+        <div style={{
+          position: 'absolute', inset: 0, zIndex: 2, opacity: 0.04, pointerEvents: 'none',
+          backgroundImage: `
+            linear-gradient(rgba(0,168,255,0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,168,255,0.3) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px',
+        }} />
 
         <div className="container" style={{ paddingTop: 'clamp(8rem, 18vh, 12rem)', zIndex: 3, position: 'relative' }}>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
-            <div className="section-label" style={{ marginBottom: '1.5rem' }}>Exceeding Expectations</div>
+            <div className="data-label" style={{ marginBottom: '1.5rem', color: '#00a8ff', fontFamily: 'JetBrains Mono', fontSize: '0.7rem', letterSpacing: '0.15em' }}>
+              // Heavy Infrastructure · Rapid Response
+            </div>
           </motion.div>
 
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }}
             style={{ fontFamily: 'Inter', fontSize: 'clamp(3rem, 7vw, 5.5rem)', color: '#f0f0fa', lineHeight: 1.0, letterSpacing: '-0.03em', marginBottom: '2rem', maxWidth: '800px', fontWeight: 600 }}>
-            In the World<br/>of Energy
+            Forging the <PowerOnText color="#00a8ff" delay={1.3}>Grid.</PowerOnText><br/>
+            Restoring the <PowerOnText color="#F5A623" delay={1.8}>Power.</PowerOnText>
             <span className="hero-subtitle" style={{ display: 'block', fontSize: 'clamp(0.85rem, 1.5vw, 1.1rem)', fontWeight: 400, color: 'rgba(240,240,250,0.65)', letterSpacing: '0.15em', textTransform: 'uppercase', marginTop: '1.5rem', fontFamily: 'Barlow Condensed' }}>
               Distribution · Underground · Storm Restoration · Fiber · Streetlight
             </span>
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }}
-            style={{ fontSize: '1.05rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.7)', maxWidth: '480px', marginBottom: '3rem' }}>
-            A dependable, knowledgeable, and trusted partner in power utility construction, site preparation, and emergency response across the Gulf South.
+            style={{ fontSize: '1.05rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.7)', maxWidth: '520px', marginBottom: '3rem' }}>
+            We build, maintain, and restore the critical high-voltage networks that keep the Gulf South running. When the skies darken, our crews activate—delivering 24/7 reliability.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.9 }}
@@ -85,10 +151,10 @@ export default function Home() {
               { value: 24, suffix: '/7', label: 'STORM RESPONSE' }
             ].map((stat, idx) => (
               <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}>
-                <div style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontFamily: 'Inter', fontWeight: 700, color: '#f0f0fa', lineHeight: 1, letterSpacing: '-0.03em', marginBottom: '0.5rem' }}>
+                <div style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, color: '#f0f0fa', lineHeight: 1, letterSpacing: '-0.03em', marginBottom: '0.5rem' }}>
                   <AnimatedCounter from={0} to={stat.value} suffix={stat.suffix} />
                 </div>
-                <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.2em', color: 'rgba(240,240,250,0.5)' }}>{stat.label}</div>
+                <div className="data-label">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -100,13 +166,33 @@ export default function Home() {
       {/* ═══ MARQUEE ═══ */}
       <Marquee />
 
+      {/* ═══ LIVE OPERATIONS MAP ═══ */}
+      <section className="section ops-section" style={{ background: '#000', borderBottom: '1px solid var(--ghost-border)' }}>
+        <div className="container" style={{ maxWidth: '1200px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '3rem' }}>
+            <div className="section-label" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <ShieldAlert size={14} color="var(--amber)" /> Live Grid Operations
+            </div>
+            <h2 className="section-title" style={{ marginBottom: '1rem' }}>Storm Response &<br/>Fleet Tracking</h2>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', maxWidth: '600px', margin: 0 }}>
+                Our crews are positioned strategically across the Gulf South, ready to respond to severe weather events and maintain critical infrastructure.
+              </p>
+              <GridSonification />
+            </div>
+          </div>
+          <OpsMap />
+        </div>
+      </section>
+
       {/* ═══ CREW VIDEO BREAK ═══ */}
-      <section style={{ position: 'relative', height: 'clamp(300px, 50vw, 500px)', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', height: 'clamp(250px, 40vw, 400px)', overflow: 'hidden', background: '#0a0a0a' }}>
         <video 
           ref={(el) => { if (!el) return; el.muted = true; const tryPlay = () => el.play().catch(() => {}); tryPlay(); }}
           src="/crew-video.mp4" autoPlay loop muted playsInline preload="auto"
+          onError={(e) => { e.target.style.display = 'none'; }}
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, #000 0%, transparent 25%, transparent 75%, #000 100%)', zIndex: 1 }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, #000 0%, transparent 30%, transparent 70%, #000 100%)', zIndex: 1 }} />
         <div className="container" style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', alignItems: 'center' }}>
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             <div className="section-label">Our Crews in Action</div>
