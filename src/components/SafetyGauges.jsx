@@ -113,7 +113,7 @@ function Gauge({ value, max, industryAvg, label, unit, color, description }) {
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.75rem', fontWeight: 700, color: isGood ? '#00e676' : '#ff4444' }}>
             {value} {unit}
           </div>
-          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.4rem', fontWeight: 600, letterSpacing: '0.1em', color: 'rgba(240,240,250,0.25)' }}>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.4rem', fontWeight: 600, letterSpacing: '0.1em', color: 'rgba(240,240,250,0.5)' }}>
             SOL POWERLINES
           </div>
         </div>
@@ -122,7 +122,7 @@ function Gauge({ value, max, industryAvg, label, unit, color, description }) {
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.75rem', fontWeight: 700, color: '#ff9100' }}>
             {industryAvg} {unit}
           </div>
-          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.4rem', fontWeight: 600, letterSpacing: '0.1em', color: 'rgba(240,240,250,0.25)' }}>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.4rem', fontWeight: 600, letterSpacing: '0.1em', color: 'rgba(240,240,250,0.5)' }}>
             INDUSTRY AVG
           </div>
         </div>
@@ -145,7 +145,7 @@ function Gauge({ value, max, industryAvg, label, unit, color, description }) {
       {/* Description */}
       <div style={{
         fontFamily: 'Inter', fontSize: '0.7rem', lineHeight: 1.6,
-        color: 'rgba(240,240,250,0.3)', marginTop: '0.75rem',
+        color: 'rgba(240,240,250,0.6)', marginTop: '0.75rem',
         maxWidth: '280px', margin: '0.75rem auto 0',
       }}>
         {description}
