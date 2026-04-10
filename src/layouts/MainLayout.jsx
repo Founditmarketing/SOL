@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import Copilot from '../components/Copilot';
 import GridGlitch from '../components/GridGlitch';
 
 export default function MainLayout() {
@@ -13,13 +12,6 @@ export default function MainLayout() {
         <Outlet />
       </main>
       <Footer />
-      <Copilot />
-      <style>{`
-        @media(min-width: 901px) {
-          .mobile-main { padding-bottom: 0 !important; }
-        }
-      `}</style>
     </div>
   );
 }
-

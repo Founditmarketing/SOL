@@ -44,6 +44,22 @@ export default function Footer() {
       
       <div style={{ maxWidth: '1300px', margin: '4rem auto 0', paddingTop: '2rem', borderTop: '1px solid rgba(240,240,250,0.06)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         <p style={{ fontSize: '0.75rem', color: 'rgba(240,240,250,0.2)', letterSpacing: '0.05em' }}>&copy; 2026 SolPowerlines, LLC. All rights reserved.</p>
+        <button 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+            background: 'none', border: '1px solid rgba(240,240,250,0.1)',
+            borderRadius: '100px', padding: '0.5rem 1rem',
+            fontFamily: "'JetBrains Mono', monospace", fontSize: '0.55rem', fontWeight: 600,
+            letterSpacing: '0.12em', textTransform: 'uppercase',
+            color: 'rgba(240,240,250,0.3)', cursor: 'pointer',
+            transition: 'all 0.3s',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--amber)'; e.currentTarget.style.color = 'var(--amber)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(240,240,250,0.1)'; e.currentTarget.style.color = 'rgba(240,240,250,0.3)'; }}
+        >
+          ↑ Back to Top
+        </button>
         <span style={{ fontFamily: 'Barlow Condensed', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--amber)', opacity: 0.6 }}>People Matter More</span>
       </div>
 

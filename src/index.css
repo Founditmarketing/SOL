@@ -786,5 +786,27 @@ button {
     padding-left: 1.25rem !important;
     padding-right: 1.25rem !important;
   }
+
+  /* Map section → full-width edge-to-edge on mobile */
+  .ops-section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .ops-section .container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    max-width: 100% !important;
+  }
+  .ops-section .leaflet-container {
+    border-radius: 0 !important;
+  }
+  .ops-section > .container > div:last-child {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    margin-left: -1.25rem !important;
+    margin-right: -1.25rem !important;
+    width: calc(100% + 2.5rem) !important;
+  }
 }
 
