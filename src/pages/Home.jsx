@@ -195,17 +195,21 @@ export default function Home() {
           }}
         />
 
-        {/* Layer 9: Power pulse — sweeps back and forth continuously */}
-        <motion.div className="hero-power-pulse"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 4.5 }}
-          style={{
-            position: 'absolute', top: 0, left: 0, width: '30%', height: '100%', zIndex: 3, pointerEvents: 'none',
-            background: 'linear-gradient(90deg, transparent, rgba(0,168,255,0.08), rgba(245,166,35,0.12), rgba(0,168,255,0.08), transparent)',
-            filter: 'blur(40px)',
-          }}
-        />
+        {/* Layer 9: Repeating electrical streaks — fire across the grid on a loop */}
+        {[18, 42, 68, 90].map((top, i) => (
+          <div key={`live-h-${i}`} className={`hero-streak-h hero-streak-h-${i}`} style={{
+            position: 'absolute', top: `${top}%`, left: 0, right: 0, height: '1px', zIndex: 3, pointerEvents: 'none',
+            background: 'linear-gradient(90deg, transparent, rgba(0,168,255,0.7) 20%, rgba(245,166,35,0.5) 50%, rgba(0,168,255,0.7) 80%, transparent)',
+            transformOrigin: 'left center',
+          }} />
+        ))}
+        {[22, 55, 82].map((left, i) => (
+          <div key={`live-v-${i}`} className={`hero-streak-v hero-streak-v-${i}`} style={{
+            position: 'absolute', left: `${left}%`, top: 0, bottom: 0, width: '1px', zIndex: 3, pointerEvents: 'none',
+            background: 'linear-gradient(180deg, transparent, rgba(0,168,255,0.6) 20%, rgba(245,166,35,0.4) 50%, rgba(0,168,255,0.6) 80%, transparent)',
+            transformOrigin: 'top center',
+          }} />
+        ))}
 
         {/* Scrim for text readability */}
         <div style={{
@@ -274,16 +278,28 @@ export default function Home() {
             33% { opacity: 0.14; }
             66% { opacity: 0.08; }
           }
-          @keyframes power-sweep {
-            0% { left: -30%; }
-            50% { left: 100%; }
-            50.01% { left: 100%; }
-            100% { left: -30%; }
+          @keyframes streak-fire-h {
+            0%, 80%, 100% { opacity: 0; transform: scaleX(0); }
+            85% { opacity: 0.8; transform: scaleX(1); }
+            90% { opacity: 0.4; transform: scaleX(1); }
+            95% { opacity: 0; transform: scaleX(1); }
+          }
+          @keyframes streak-fire-v {
+            0%, 80%, 100% { opacity: 0; transform: scaleY(0); }
+            85% { opacity: 0.6; transform: scaleY(1); }
+            90% { opacity: 0.3; transform: scaleY(1); }
+            95% { opacity: 0; transform: scaleY(1); }
           }
           .hero { animation: power-hum 5s ease-in-out infinite; animation-delay: 4.5s; }
           .hero-grid-lines { animation: grid-shimmer 8s ease-in-out infinite; animation-delay: 4.5s; }
           .hero-persistent-grid { animation: grid-shimmer 6s ease-in-out infinite; animation-delay: 5s; }
-          .hero-power-pulse { animation: power-sweep 6s ease-in-out infinite; animation-delay: 5s; }
+          .hero-streak-h-0 { animation: streak-fire-h 7s ease-out infinite; animation-delay: 5s; }
+          .hero-streak-h-1 { animation: streak-fire-h 9s ease-out infinite; animation-delay: 6.5s; }
+          .hero-streak-h-2 { animation: streak-fire-h 8s ease-out infinite; animation-delay: 8s; }
+          .hero-streak-h-3 { animation: streak-fire-h 10s ease-out infinite; animation-delay: 7s; }
+          .hero-streak-v-0 { animation: streak-fire-v 11s ease-out infinite; animation-delay: 5.5s; }
+          .hero-streak-v-1 { animation: streak-fire-v 8s ease-out infinite; animation-delay: 7.5s; }
+          .hero-streak-v-2 { animation: streak-fire-v 9s ease-out infinite; animation-delay: 9s; }
         `}</style>
       </section>
 
