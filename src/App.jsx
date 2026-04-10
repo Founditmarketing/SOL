@@ -9,7 +9,6 @@ import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import WhoWeServe from './pages/WhoWeServe';
 
-import CustomCursor from './components/CustomCursor';
 import Preloader from './components/Preloader';
 import ScrollToTop from './components/ScrollToTop';
 import PageTitle from './components/PageTitle';
@@ -18,7 +17,6 @@ function App() {
   return (
     <>
       <Preloader />
-      <CustomCursor />
       <GridProvider>
         <Router>
           <ScrollToTop />
