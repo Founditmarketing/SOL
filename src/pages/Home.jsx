@@ -294,8 +294,8 @@ export default function Home() {
         `}</style>
       </section>
 
-      {/* ═══ STATS BAR ═══ */}
-      <section className="section stats-section" style={{ background: '#000', borderTop: '1px solid rgba(240,240,250,0.06)', borderBottom: '1px solid rgba(240,240,250,0.06)', padding: '3rem 2rem' }}>
+      {/* ═══ STATS BAR (desktop only) ═══ */}
+      <section className="section stats-section desktop-only" style={{ background: '#000', borderTop: '1px solid rgba(240,240,250,0.06)', borderBottom: '1px solid rgba(240,240,250,0.06)', padding: '3rem 2rem' }}>
         <div className="container">
           <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', textAlign: 'center' }}>
             {[
@@ -312,11 +312,12 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <style>{`@media(max-width: 600px) { .stats-grid { gap: 0.25rem !important; } .stats-section { padding: 1.5rem 0.75rem !important; } .stats-grid .data-label { font-size: 0.4rem !important; letter-spacing: 0.08em !important; } }`}</style>
       </section>
 
-      {/* ═══ MARQUEE ═══ */}
-      <Marquee />
+      {/* ═══ MARQUEE (desktop only) ═══ */}
+      <div className="desktop-only">
+        <Marquee />
+      </div>
 
       {/* ═══ LIVE OPERATIONS MAP ═══ */}
       <section className="section ops-section" style={{ background: '#000', borderBottom: '1px solid var(--ghost-border)' }}>
@@ -326,10 +327,10 @@ export default function Home() {
               <ShieldAlert size={14} color="var(--amber)" /> Live Operations Center
             </div>
             <h2 className="section-title" style={{ marginBottom: '1rem' }}>Real-Time Weather &<br/>Staging Map</h2>
-            <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', maxWidth: '600px', margin: '0 0 1rem' }}>
+            <p className="desktop-only" style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(240,240,250,0.6)', maxWidth: '600px', margin: '0 0 1rem' }}>
               This map shows <span style={{ color: '#f0f0fa', fontWeight: 600 }}>live NEXRAD radar</span>, <span style={{ color: '#ff9100', fontWeight: 600 }}>active NWS severe weather alerts</span>, and our <span style={{ color: '#00a8ff', fontWeight: 600 }}>pre-positioned staging bases</span> across the Gulf South. Data refreshes automatically every 5 minutes.
             </p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+            <div className="desktop-only" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
               {/* Quick visual legend */}
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 {[

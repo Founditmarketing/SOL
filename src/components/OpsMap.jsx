@@ -150,7 +150,7 @@ export default function OpsMap() {
     }}>
       
       {/* ═══ MAP CONTAINER ═══ */}
-      <div style={{ height: '500px', width: '100%', position: 'relative' }}>
+      <div className="ops-map-container" style={{ height: '500px', width: '100%', position: 'relative' }}>
         <MapContainer
           center={[30.5, -91.5]}
           zoom={6}
@@ -254,7 +254,7 @@ export default function OpsMap() {
       </div>
 
       {/* ═══ OPERATIONS PANEL ═══ */}
-      <div style={{ 
+      <div className="ops-panel" style={{ 
         background: 'linear-gradient(to bottom, #11141c, #0a0c10)', 
         borderTop: '1px solid var(--ghost-border)',
         padding: '1.25rem 1.5rem',
@@ -288,7 +288,7 @@ export default function OpsMap() {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.75rem' }}>
+        <div className="base-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.75rem' }}>
           {bases.map((node) => {
             const isActive = activeNode === node.id;
             return (
@@ -373,6 +373,11 @@ export default function OpsMap() {
         }
         @media(max-width: 900px) {
           .desktop-only { display: none !important; }
+        }
+        @media(max-width: 600px) {
+          .ops-map-container { height: 400px !important; }
+          .ops-panel { padding: 1rem !important; }
+          .ops-panel .base-cards { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </div>
