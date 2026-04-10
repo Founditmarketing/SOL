@@ -195,30 +195,6 @@ export default function Home() {
           }}
         />
 
-        {/* Layer 9: Wandering energy node — a glowing spot that drifts across the grid */}
-        <motion.div className="hero-energy-node"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.6 }}
-          transition={{ duration: 1, delay: 4.5 }}
-          style={{
-            position: 'absolute', width: '300px', height: '300px', zIndex: 2, pointerEvents: 'none',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(0,168,255,0.15) 0%, transparent 70%)',
-            filter: 'blur(30px)',
-          }}
-        />
-
-        {/* Layer 10: Random flicker sparks — periodic electrical crackle */}
-        <div className="hero-flicker-spark" style={{
-          position: 'absolute', top: '35%', left: '60%', width: '2px', height: '2px',
-          borderRadius: '50%', zIndex: 3, pointerEvents: 'none',
-          background: '#00a8ff', boxShadow: '0 0 8px 4px rgba(0,168,255,0.6)',
-        }} />
-        <div className="hero-flicker-spark-2" style={{
-          position: 'absolute', top: '70%', left: '25%', width: '2px', height: '2px',
-          borderRadius: '50%', zIndex: 3, pointerEvents: 'none',
-          background: '#F5A623', boxShadow: '0 0 8px 4px rgba(245,166,35,0.6)',
-        }} />
 
         {/* Scrim for text readability */}
         <div style={{
@@ -280,48 +256,16 @@ export default function Home() {
         <style>{`
           @keyframes power-hum {
             0%, 100% { box-shadow: inset 0 0 120px rgba(0,168,255,0.02); }
-            50% { box-shadow: inset 0 0 120px rgba(0,168,255,0.08); }
+            50% { box-shadow: inset 0 0 120px rgba(0,168,255,0.06); }
           }
-          @keyframes grid-pulse {
-            0%, 100% { opacity: 0.08; }
-            25% { opacity: 0.14; }
-            50% { opacity: 0.10; }
-            75% { opacity: 0.16; }
+          @keyframes grid-shimmer {
+            0%, 100% { opacity: 0.10; }
+            33% { opacity: 0.14; }
+            66% { opacity: 0.08; }
           }
-          @keyframes grid-flicker {
-            0%, 90%, 100% { opacity: 0.12; }
-            92% { opacity: 0.35; }
-            94% { opacity: 0.08; }
-            96% { opacity: 0.25; }
-            98% { opacity: 0.12; }
-          }
-          @keyframes energy-drift {
-            0% { top: 20%; left: 10%; }
-            25% { top: 60%; left: 70%; }
-            50% { top: 30%; left: 85%; }
-            75% { top: 75%; left: 30%; }
-            100% { top: 20%; left: 10%; }
-          }
-          @keyframes spark-blink {
-            0%, 85%, 100% { opacity: 0; transform: scale(0); }
-            88% { opacity: 1; transform: scale(1.5); }
-            90% { opacity: 0.3; transform: scale(0.5); }
-            92% { opacity: 0.8; transform: scale(1); }
-            94% { opacity: 0; transform: scale(0); }
-          }
-          @keyframes spark-blink-2 {
-            0%, 70%, 100% { opacity: 0; transform: scale(0); }
-            73% { opacity: 1; transform: scale(1.5); }
-            75% { opacity: 0; transform: scale(0); }
-            77% { opacity: 0.6; transform: scale(1); }
-            79% { opacity: 0; transform: scale(0); }
-          }
-          .hero { animation: power-hum 4s ease-in-out infinite; animation-delay: 4.5s; }
-          .hero-grid-lines { animation: grid-pulse 5s ease-in-out infinite; animation-delay: 4.5s; }
-          .hero-persistent-grid { animation: grid-flicker 8s ease-in-out infinite; animation-delay: 5s; }
-          .hero-energy-node { animation: energy-drift 20s ease-in-out infinite; animation-delay: 5s; }
-          .hero-flicker-spark { animation: spark-blink 6s ease-in-out infinite; animation-delay: 5.5s; }
-          .hero-flicker-spark-2 { animation: spark-blink-2 8s ease-in-out infinite; animation-delay: 7s; }
+          .hero { animation: power-hum 5s ease-in-out infinite; animation-delay: 4.5s; }
+          .hero-grid-lines { animation: grid-shimmer 8s ease-in-out infinite; animation-delay: 4.5s; }
+          .hero-persistent-grid { animation: grid-shimmer 6s ease-in-out infinite; animation-delay: 5s; }
         `}</style>
       </section>
 
