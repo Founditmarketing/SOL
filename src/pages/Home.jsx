@@ -104,17 +104,17 @@ export default function Home() {
           }}
         />
 
-        {/* Layer 2: Grid lines — starts with single flicker, builds to rapid bursts */}
+        {/* Layer 2: Grid lines — each flicker BUILDS, never returns to zero */}
         <motion.div className="hero-grid-lines"
           initial={{ opacity: 0 }}
           animate={{ opacity: [
-            0, 0, 0,           // 0.0s-0.6s: darkness
-            0.5, 0,            // 0.7s: first flicker — snap on, snap off
-            0, 0,              // 0.9s-1.0s: dark again. tension.
-            0.3, 0,            // 1.2s: second flicker — weaker
-            0.6, 0, 0.4, 0,   // 1.5s: rapid double-tap — trying harder
-            0.7, 0.2, 0.8, 0, // 2.0s: surging — almost there
-            0.9, 0.5, 0.15    // 2.5s: HOLDS, settles to idle
+            0, 0, 0,              // 0–0.6s: total darkness
+            0.4, 0.03,            // 0.7s: first flicker — leaves a trace
+            0.03, 0.03,           // 0.9s: dim residual glow — power's in the lines now
+            0.35, 0.06,           // 1.2s: second surge — floor rises
+            0.5, 0.10, 0.45, 0.12, // 1.6s: rapid double — each dip stays higher
+            0.6, 0.15, 0.7, 0.18, // 2.0s: building fast — almost stable
+            0.85, 0.5, 0.15       // 2.8s: FULL SURGE, then settle to idle
           ] }}
           transition={{ duration: 4, times: [
             0, 0.05, 0.15,
@@ -153,10 +153,10 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: [
             0, 0, 0,
-            0.15, 0,            // first attempt — dim flash
-            0, 0.25, 0,         // second attempt — brighter
-            0.4, 0, 0.5, 0,     // rapid attempts
-            1, 0.6, 0, 0.2, 0   // BREAKER THROWN — full bright
+            0.08, 0.02,           // first attempt — faint
+            0.02, 0.15, 0.03,     // second attempt — building
+            0.25, 0.05, 0.35, 0.08, // rapid attempts — escalating
+            0.9, 0.5, 0.1, 0.05, 0 // BREAKER THROWN — full bright, settle
           ] }}
           transition={{ duration: 4, times: [
             0, 0.15, 0.17,
