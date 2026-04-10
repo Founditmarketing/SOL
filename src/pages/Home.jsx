@@ -195,6 +195,17 @@ export default function Home() {
           }}
         />
 
+        {/* Layer 9: Power pulse — sweeps back and forth continuously */}
+        <motion.div className="hero-power-pulse"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 4.5 }}
+          style={{
+            position: 'absolute', top: 0, left: 0, width: '30%', height: '100%', zIndex: 3, pointerEvents: 'none',
+            background: 'linear-gradient(90deg, transparent, rgba(0,168,255,0.08), rgba(245,166,35,0.12), rgba(0,168,255,0.08), transparent)',
+            filter: 'blur(40px)',
+          }}
+        />
 
         {/* Scrim for text readability */}
         <div style={{
@@ -263,9 +274,16 @@ export default function Home() {
             33% { opacity: 0.14; }
             66% { opacity: 0.08; }
           }
+          @keyframes power-sweep {
+            0% { left: -30%; }
+            50% { left: 100%; }
+            50.01% { left: 100%; }
+            100% { left: -30%; }
+          }
           .hero { animation: power-hum 5s ease-in-out infinite; animation-delay: 4.5s; }
           .hero-grid-lines { animation: grid-shimmer 8s ease-in-out infinite; animation-delay: 4.5s; }
           .hero-persistent-grid { animation: grid-shimmer 6s ease-in-out infinite; animation-delay: 5s; }
+          .hero-power-pulse { animation: power-sweep 6s ease-in-out infinite; animation-delay: 5s; }
         `}</style>
       </section>
 
