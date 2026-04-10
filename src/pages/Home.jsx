@@ -180,7 +180,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <style>{`@media(max-width: 600px) { .stats-grid { grid-template-columns: 1fr !important; gap: 1.25rem !important; } .stats-section { padding: 2rem 1.5rem !important; } }`}</style>
+        <style>{`@media(max-width: 600px) { .stats-grid { gap: 0.5rem !important; } .stats-section { padding: 2rem 1rem !important; } }`}</style>
       </section>
 
       {/* ═══ MARQUEE ═══ */}
