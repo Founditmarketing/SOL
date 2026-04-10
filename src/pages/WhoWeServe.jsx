@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import Marquee from '../components/Marquee';
 
 export default function WhoWeServe() {
   return (
@@ -16,6 +17,8 @@ export default function WhoWeServe() {
           </motion.div>
         </div>
       </section>
+
+      <Marquee />
 
       <section className="section page-section" style={{ background: '#000' }}>
         <div className="container">
