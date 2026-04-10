@@ -108,7 +108,7 @@ export default function Home() {
         {/* Text scrim — full-width contrast behind hero text */}
         <div style={{
           position: 'absolute', inset: 0, zIndex: 2,
-          background: 'linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.15) 50%, transparent 85%)',
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 50%, transparent 85%)',
           pointerEvents: 'none',
         }} />
 
@@ -164,10 +164,9 @@ export default function Home() {
       </section>
 
       {/* ═══ STATS BAR ═══ */}
-      <section className="section stats-section" style={{ background: '#000', borderTop: '1px solid rgba(240,240,250,0.06)', borderBottom: '1px solid rgba(240,240,250,0.06)', padding: '4rem 2rem' }}>
+      <section className="section stats-section" style={{ background: '#000', borderTop: '1px solid rgba(240,240,250,0.06)', borderBottom: '1px solid rgba(240,240,250,0.06)', padding: '3rem 2rem' }}>
         <div className="container">
-          <div className="carousel-wrapper">
-          <div className="mobile-carousel hide-scrollbar" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', textAlign: 'center' }}>
+          <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', textAlign: 'center' }}>
             {[
               { value: 200, suffix: '+', label: 'SKILLED EMPLOYEES' },
               { value: 20, suffix: '+', label: 'YEARS EXPERIENCE' },
@@ -181,9 +180,8 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-          <SwipeHint />
-          </div>
         </div>
+        <style>{`@media(max-width: 600px) { .stats-grid { grid-template-columns: 1fr !important; gap: 1.25rem !important; } .stats-section { padding: 2rem 1.5rem !important; } }`}</style>
       </section>
 
       {/* ═══ MARQUEE ═══ */}

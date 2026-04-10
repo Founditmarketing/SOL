@@ -21,7 +21,7 @@ export default function Marquee() {
         <div style={{
           fontFamily: "'JetBrains Mono', monospace", fontSize: '0.55rem', fontWeight: 500,
           letterSpacing: '0.15em', textTransform: 'uppercase',
-          color: 'rgba(240,240,250,0.25)', textAlign: 'center', marginBottom: '1.25rem',
+          color: 'rgba(240,240,250,0.5)', textAlign: 'center', marginBottom: '1.25rem',
         }}>
           TRUSTED BY UTILITIES ACROSS THE GULF SOUTH
         </div>
