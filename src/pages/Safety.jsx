@@ -1,9 +1,6 @@
 import { motion } from 'framer-motion';
 import { ShieldAlert, Eye, AlertTriangle, UserCheck, Award } from 'lucide-react';
 import IncidentCounter from '../components/IncidentCounter';
-import StopWorkSimulator from '../components/StopWorkSimulator';
-import SafetyHeatmap from '../components/SafetyHeatmap';
-import PPEDiagram from '../components/PPEDiagram';
 import SafetyGauges from '../components/SafetyGauges';
 
 export default function Safety() {
@@ -98,59 +95,6 @@ export default function Safety() {
         </div>
       </section>
 
-      {/* ═══ SAFETY HEATMAP ═══ */}
-      <section style={{ background: '#000', borderTop: '1px solid rgba(240,240,250,0.06)', padding: '4rem 2rem' }}>
-        <div className="container" style={{ maxWidth: '1100px' }}>
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} style={{ marginBottom: '1.5rem' }}>
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.15em', color: 'rgba(240,240,250,0.5)', marginBottom: '0.5rem' }}>
-              DAILY SAFETY TRACKING
-            </div>
-            <h2 style={{ fontFamily: 'Inter', fontSize: 'clamp(1.3rem, 3.5vw, 1.8rem)', fontWeight: 700, color: '#f0f0fa' }}>
-              Every Day Is Tracked
-            </h2>
-            <p style={{ fontSize: '0.85rem', color: 'rgba(240,240,250,0.65)', maxWidth: '500px', lineHeight: 1.6, marginTop: '0.5rem' }}>
-              A wall of green. Every square is a day our crews went home safe. Hover any square to see the date and status.
-            </p>
-          </motion.div>
-          <SafetyHeatmap />
-        </div>
-      </section>
-
-      {/* ═══ PPE DIAGRAM ═══ */}
-      <section style={{ background: '#050508', borderTop: '1px solid rgba(240,240,250,0.06)', padding: '4rem 2rem' }}>
-        <div className="container" style={{ maxWidth: '1000px' }}>
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} style={{ marginBottom: '2rem' }}>
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.15em', color: 'rgba(240,240,250,0.5)', marginBottom: '0.5rem' }}>
-              EQUIPMENT STANDARDS
-            </div>
-            <h2 style={{ fontFamily: 'Inter', fontSize: 'clamp(1.3rem, 3.5vw, 1.8rem)', fontWeight: 700, color: '#f0f0fa' }}>
-              Every Piece of Gear, Specified
-            </h2>
-            <p style={{ fontSize: '0.85rem', color: 'rgba(240,240,250,0.65)', maxWidth: '500px', lineHeight: 1.6, marginTop: '0.5rem' }}>
-              Tap any zone on the lineman to see the exact ANSI/OSHA standards we require for every piece of personal protective equipment.
-            </p>
-          </motion.div>
-          <PPEDiagram />
-        </div>
-      </section>
-
-      {/* ═══ STOP-WORK SIMULATOR ═══ */}
-      <section style={{ background: '#000', borderTop: '1px solid rgba(240,240,250,0.06)', padding: '4rem 2rem' }}>
-        <div className="container" style={{ maxWidth: '700px' }}>
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} style={{ marginBottom: '2rem' }}>
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.15em', color: 'rgba(240,240,250,0.5)', marginBottom: '0.5rem' }}>
-              INTERACTIVE TRAINING
-            </div>
-            <h2 style={{ fontFamily: 'Inter', fontSize: 'clamp(1.3rem, 3.5vw, 1.8rem)', fontWeight: 700, color: '#f0f0fa' }}>
-              Would You Make the Right Call?
-            </h2>
-            <p style={{ fontSize: '0.85rem', color: 'rgba(240,240,250,0.65)', maxWidth: '500px', lineHeight: 1.6, marginTop: '0.5rem' }}>
-              Every SolPowerlines employee has Stop-Work Authority. Test your instincts against real job-site scenarios our crews face.
-            </p>
-          </motion.div>
-          <StopWorkSimulator />
-        </div>
-      </section>
 
       {/* ═══ CLOSING QUOTE ═══ */}
       <section style={{ background: '#050508', borderTop: '1px solid rgba(240,240,250,0.06)', padding: '5rem 2rem', textAlign: 'center' }}>
