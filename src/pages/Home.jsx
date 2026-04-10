@@ -262,11 +262,11 @@ export default function Home() {
             50% { box-shadow: inset 0 0 120px rgba(0,168,255,0.06); }
           }
           @keyframes grid-glow {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 1.4; filter: brightness(1.3); }
+            0%, 100% { opacity: 0.8; filter: brightness(0.8); }
+            50% { opacity: 1.6; filter: brightness(1.8); }
           }
           .hero { animation: power-hum 5s ease-in-out infinite; animation-delay: 4s; }
-          .hero-persistent-grid { animation: grid-glow 4s ease-in-out infinite; animation-delay: 4s; }
+          .hero-persistent-grid { animation: grid-glow 3s ease-in-out infinite; animation-delay: 4s; }
         `}</style>
       </section>
 
